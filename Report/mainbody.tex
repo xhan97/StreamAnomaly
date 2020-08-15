@@ -1,87 +1,230 @@
 %=================================================================
 \section{Introduction}\label{sec-intro}
 
+Data is the new oil for the industry and
+it can be used for empowering processes with
+new business-related insights
+(e.g. to define new customer groups through predictive analytics).
+At the same time data is a critical asset of a company and
+can be used for different types of healthy monitoring tasks,
+e.g.
+to detect a cyber-attack.
+However,
+for the most of the checks it is difficult
+to define reliable observation rules,
+since the domains are too complex and dynamics and
+the process of modelling healthy/normal behavior is costly.
 
-Test citation~\cite{BL12J01}. 
-\begin{JournalOnly}
-and~\citep{BJL11J01} or~\citet{BJL11J01}.
-\end{JournalOnly}
+Anomaly detection is very popular in industry.
+They has been used extensively for
+intrusion detection,
+fraud detection,
+fault detection,
+event detection in sensor networks,
+and detecting eco-system disturbances.
 
-This is for~\cref{tbl:overall-experiments}, 
-\todo[fancyline]{Testing.}
-and this is for~\cref{sec-conclusions}.
-\todo[noline]{A note with no line back to the text.}%
-\gangli{This is comment from Gang.}
-\qwu{Response from QW}
+The rest of the chapter is organised as follows.
+We first introduce the anomaly detection and
+discuss the challenges of it in industry in section~\ref{sec-preliminaries}.
+Then,
+in the Section~\ref{sec-method},
+we introduce the existing methods of anomaly detection in
+industry and show how they solve the challenges above.
+Section~\ref{sec:tools} introduce the published tools of
+methods of anomaly detection,
+followed by the conclusions in the last section.
 
-Number:
-\num{123}.
-\numlist{10;30;50;70},
-\numrange{10}{30},
-\SIlist{10;30;45}{\metre},
-and
-\SI{10}{\percent}
-
-\missingfigure[figcolor=white]{Testing figcolor}
-
-
-\begin{ConferenceOnly}
-We have \SI{10}{\hertz},
-\si{\kilogram\metre\per\second},
-the range: \SIrange{10}{100}{\hertz}.
-$\nicefrac[]{1}{2}$.
-
-\missingfigure{Make a sketch of the structure of a trebuchet.}
-
-\end{ConferenceOnly}
-
-
-For~\cref{eq:test},
-as shown below:
-
-\begin{equation}\label{eq:test}
-a = b \times \sqrt{ab}
-\end{equation}
-
-\blindmathpaper
-
-\section{Preliminaries} \label{sec-preliminaries}
-
-\blindtext
-
-\gliMarker  %TODO: GLi Here
+\section{Anomaly detection}~\label{sec-preliminaries}
+Anomalies are data patterns that
+have different data characteristics from normal
+instances.
+The ability to detect anomalies has significant relevance,
+and anomalies
 
 
-\section{Method} \label{sec-method}
 
-\blindtext
-\blindlist{itemize}[3]
-\blinditemize
-\blindenumerate
+\section{Method of Anomaly Detection}~\label{sec-method}
+\subsection{Statistical Based Methods}
+and most studied approach.
+It considers that the difference
+between the data and the statistical distribution or the model
+given is bigger than a particular value or range that is
+anomaly [5].
+This method can be divided into two
+categories: distribution-based method and depth-based
+method.
+The former is to assign a distribution (such as
+normal distribution,
+Poisson distribution,
+etc.),
+and then the
+anomaly is found by the method of consistency checking.
+The vast majority tests of anomaly detection based on
+distribution are for a single attribute while a large number
+of abnormal data mining in reality is carried out in a
+multidimensional space.
+In addition,
+the actual distribution
+of the data set is often unknown,
+and it is difficult to
+estimate the data distribution in high-dimensional; The
+latter method considers that each object is a point in
+n-dimensional space,
+each point has one set depth,
+and anomaly possibly exists in the object which has lower depth.
+This process avoids the data distribution fitting problem of
+distribution method of distribution based method and has
+better efficiency on UTS detection.
+But it needs to calculate
+the convex closure of n-dimensional space and has higher
+calculation complexity,
+only suitable for low dimensional
+data like two dimensional or three,
+and has a low efficiency
+on large data sets with four or higher dimensions [6].
 
-\blindmathtrue
-\blindmathfalse
-\blinddescription
+\subsection{Distance Based Methods}
 
-\qwuMarker %TODO: QWu Here
+The basic thought of anomaly detection based on
+distance is to calculate the distance between data points in
+data space by setting a distance function.
+It is regarded as
+abnormal when there is a large distance between a data
+object and others.
+Knorr et al.
+firstly proposed an anomaly
+detection method based on distance [11].
+They consider o
+as,
+exception if the distance between object o and
+p objects at least is greater than d.
+And then,
+the concept of
+this distance is extended to k-neighbor distance.
+K-neighbor
+distance of each object is calculated and
+sorted from small to big by Ramaswamy et al,
+the objects which have largest
+distance are considered abnormal [12].
+At present,
+there are several anomaly detection methods based on distance such as
+the algorithm based on index,
+the algorithm based on
+nested loop and the algorithm based on element [13].
+The anomaly detection based on distance combines the ideas
+based on distribution,
+overcomes the primary disadvantages
+of anomaly detection based on distribution,
+is easier to
+realize and comprehend,
+and is widely studied and used.
+But it has its own drawbacks.
+Firstly,
+the complexity of the
+algorithm is relatively high,
+and it cannot take into account
+the data size of data sets and the scalability of dimension.
+The time complexity of the algorithm based on index and
+the algorithm based on nested loop can reach O (Mn2).
+The
+time complexity of the algorithm based on element is O
+(cm+n),
+in which m means the dimension,
+n represents the
+data object in data set,
+C represents the number of units;
+Secondly,
+Breunig et al.
+pointed out in Literature [9] that
+anomaly detection based on distance is flawed in
+processing the data sets with obvious internal density
+differences.
+It either considers the data in the area of sparse
+density to be abnormal or it cannot find some anomalous.
+This is mainly because of the anomaly detection based on
+distance considers all the viewpoints,
+its capability is not
+good in processing the data which contains a variety of
+distribution or are mixed with different densities subset.
+In addition,
+anomaly detection based on distance is very
+sensitive to parameters p and d,
+which requires the users
+having a certain expertise to set the reasonable parameters.
+So,
+its practical application is limited.
 
-\section{Experiment and Analysis} \label{sec-experiment}
+
+\subsection{Density Based Methods}
+All the methods above have a common problem,
+that is,
+a global distance criterion is considered as the basis for
+anomaly detection.
+In fact,
+the anomaly is usually detected
+from the perspective of individual,
+that is,
+the anomaly
+point is far from its neighbor cluster.
+So it is not appropriate
+to use global distance.
+To solve this problem,
+Breunig and
+other scholars proposed anomaly detection algorithm based
+on density.
+Its basic idea is detecting anomaly by comparing
+the density of object and its neighbor.
+It introduces local
+outlier factor (LOF),
+considers the exception is not a
+two-value property but a measure.
+The LOF value higher,
+the data is more likely to be abnormal.
+Agyemang et al.
+proposed local sparsity coefficient (LCF) to detect anomaly
+and reduce the computational complexity by considering
+the largest distance between the nearest k objects as
+k-distance [14].
+Furthermore,
+Papadimitriou and other
+scholars got multi-granularity deviation factor (MDEF) by
+comparing the number of data objects in r-neighbor and
+their mean values,
+took it the measure of abnormal[15].
+This method does not need to calculate the density of data
+points,
+and the computational efficiency is higher than LOF.
+The idea based on density is closer to Hawkins’ exception
+definition than the idea based on distance.
+So it can detect the local anomaly,
+reduce the detection error which contains
+a variety of distribution or are mixed with different
+densities subset,
+have a higher detection precision [16].
+However,
+there are some problems in the method based on
+density,
+its time complexity is still high,
+the detection
+results are sensitive to the selection of the parameters like
+outlier factor threshold and the parameters are difficult to
+determine.
+\subsection{Ensembles Based Methods}
+
+Ensemble methods that train multiple learners and then combine them for
+use, 
+with Boosting and Bagging as representatives, 
+are a kind of state-of-the art
+learning approach. 
+It is well known that an ensemble is usually significantly
+more accurate than a single learner, 
+and ensemble methods have
+already achieved great success inmany real-world tasks.
+
+\section{Evaluation of Anomaly Detection}
 
 
-\begin{table}  \centering
-  \caption{Precision Comparison on Event Detection Methods}
-  \label{tbl:overall-experiments}
-  \begin{tabular}{cccc}
-\toprule
-    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
-    & OR Event Detection & AC Event Detection & TC Event Detection \\
-\midrule
-    precision & 0.83 & 0.69 & 0.46 \\
-    recall & 0.68 & 0.48 & 0.36 \\
-    F-score & 0.747 & 0.57 & 0.4 \\
-\bottomrule
-\end{tabular}
-\end{table}
+\section{Recommender systems software packages}~\label{sec:tools}
 
 
 \section{Conclusions} \label{sec-conclusions}
