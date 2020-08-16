@@ -87,7 +87,8 @@ anomaly~\cite{chandola2009anomaly}.
 This method can be divided into two
 categories: distribution-based method and depth-based
 method.
-The former is to assign a distribution (such as
+
+The distribution-based method assigns a distribution (such as
 normal distribution,
 Poisson distribution,
 etc.),
@@ -97,17 +98,17 @@ distribution are for a single attribute while a large number
 of abnormal data mining in reality is carried out in a
 multidimensional space.
 In addition,
-the actual distribution
-of the data set is often unknown,
+the actual distribution of the data set is often unknown,
 and it is difficult to
-estimate the data distribution in high-dimensional; The
-latter method considers that each object is a point in
-n-dimensional space,
+estimate the data distribution in high-dimensional; 
+
+
+The depth-based method considers that 
+each object is a point in n-dimensional space,
 each point has one set depth,
 and anomaly possibly exists in the object which has lower depth.
 This process avoids the data distribution fitting problem of
-distribution method of distribution based method and has
-better efficiency on UTS detection.
+distribution method of distribution based method.
 But it needs to calculate
 the convex closure of n-dimensional space and has higher
 calculation complexity,
@@ -127,8 +128,7 @@ object and others.
 Knorr et al.
 firstly proposed an anomaly
 detection method based on distance~\cite{knorr1997unified}.
-They consider o
-as,
+They consider o as,
 exception if the distance between object o and
 p objects at least is greater than d.
 And then,
@@ -142,36 +142,26 @@ The anomaly detection based on distance combines the ideas
 based on distribution,
 overcomes the primary disadvantages
 of anomaly detection based on distribution,
-is easier to
-realize and comprehend,
+is easier to realize and comprehend,
 and is widely studied and used.
 But it has its own drawbacks.
 Firstly,
 the complexity of the algorithm is relatively high,
 and it cannot take into account
 the data size of data sets and the scalability of dimension.
-The time complexity of the algorithm based on index and
-the algorithm based on nested loop can reach O (Mn2).
-The
-time complexity of the algorithm based on element is O
-(cm+n),
-in which m means the dimension,
-n represents the
-data object in data set,
-C represents the number of units;
 Secondly,
 Breunig et al.
-pointed out in Literature that
-anomaly detection based on distance is flawed in
+pointed out anomaly detection based on distance is flawed in
 processing the data sets with obvious internal density
-differences.
+differences~\cite{breunig2000lof}.
 It either considers the data in the area of sparse
-density to be abnormal or it cannot find some anomalous.
+density to be abnormal or 
+it cannot find some anomalous.
 This is mainly because of the anomaly detection based on
 distance considers all the viewpoints,
-its capability is not
-good in processing the data which contains a variety of
-distribution or are mixed with different densities subset.
+its capability is not good in processing the data which
+contains a variety of distribution or 
+are mixed with different densities subset.
 In addition,
 anomaly detection based on distance is very
 sensitive to parameters p and d,
@@ -205,8 +195,9 @@ two-value property but a measure.
 The LOF value higher,
 the data is more likely to be abnormal~\cite{breunig2000lof}.
 Agyemang et al.
-proposed local sparsity coefficient (LCF) to detect anomaly
-and reduce the computational complexity by considering
+proposed local sparsity coefficient (LCF) to 
+detect anomaly and reduce 
+the computational complexity by considering
 the largest distance between the nearest k objects as
 k-distance~\cite{agyemang2004algorithm}.
 Furthermore,
@@ -227,8 +218,6 @@ a variety of distribution or are mixed with different
 densities subset,
 have a higher detection precision.
 However,
-there are some problems in the method based on
-density,
 its time complexity is still high,
 the detection
 results are sensitive to the selection of the parameters like
@@ -263,6 +252,32 @@ the .
 This process will help the users to make decision such as
 adjusting some feature of sample according to propsed method to
 make the anomalier to normal.
+
+In the last decade,
+a few methods have been developed to explain predictions
+from supervised models. 
+One approach uses an interpretable approximation of
+the original model~\cite{lundberg2017unified}; 
+examples of methods that 
+use an interpretable approximation 
+of the original model include: LIME~\cite{ribeiro2016should},
+which is an example of a
+model-agnostic method used to 
+explain a prediction using a local model,
+and DeepLIFT~\cite{shrikumar2017learning},
+which is an example of a model-specific method for explaining
+deep learning models in which
+the contributions of all neurons in the network are
+back-propagated to the input features. 
+SHAP - SHapley Additive exPlanation ~\cite{lundberg2017unified} 
+combines previous methods for 
+explaining predictions by calculating feature
+importance,
+using Shapley values from 
+game theory that ensures consistency of
+the explanations.
+
+
 
 % Unlike classic anomoaly detection method,
 % debate and negotiation are often necessary for group users,
@@ -329,12 +344,12 @@ RRCF~\cite{bartos_2019_rrcf} (\href{https://travis-ci.org/github/kLabUM/rrcf}{ht
 
 \section{Conclusions} \label{sec-conclusions}
 
-\blindtext
+% \blindtext
 
-\section*{Acknowledgment}
+% % %\section*{Acknowledgment}
 
-\lipsum[1]
+% % \lipsum[1]
 
 
-The authors would like to thank \ldots
+% % The authors would like to thank \ldots
 
