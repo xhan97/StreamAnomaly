@@ -289,35 +289,160 @@ the explanations.
 
 \section{Evaluation of Anomaly Detection}
 
-After the implementation of anomaly detection algorithm,
-The next step is to evaluate the algorithm. 
-Anomaly detection algorithms can be divided into two categories. 
-One is supervised anomaly detection algorithm, 
-the other is unsupervised anomaly detection algorithm.
-The two anomaly detection algorithms are evaluated respectively.
+After the implementation of anomaly 
+detection algorithm,
+The next step is to evaluate the 
+anomaly detection algorithm.
+According to the actual situation, 
+we can evaluate the procedural law 
+from two aspects: supervised learning 
+and unsupervised learning.
 
 \subsection{Supervised Evaluation}
-At present, the evaluation methods of supervised 
-anomaly detection algorithm mainly include 
-confusion matrix method,
-accuracy  and recall , 
-F1 score, 
-ROC curve, 
-AUC, 
+At present, 
+the evaluation methods of supervised learning mainly
+include confusion matrix method, accuracy and recall rate,
+F1 score,
+ROC curve,
+AUC,
 etc.
 
 \subsubsection{Confusion Matrix}
-For example, 
-for binary classification problems, 
-all problems are divided into 0 and 1. 
-The confusion matrix is a 2 * 2 matrix:
+For example,
+for binary classification problems,
+all problems are divided into 0 and 1.
+The confusion matrix is shown in Table 1,
+which is a 2 * 2 matrix.
+
+\begin{table}  \centering
+  \caption{Confusion Matrix}
+  \label{tbl:overall-experiments}
+  \begin{tabular}{ccc}
+\toprule
+    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+    & predicted value 0 & predicted value 1  \\
+\midrule
+    True value 0& TN & FP  \\
+    True value 1& FN & TP  \\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+TN:
+the true value is 0,
+and the predicted value is also 0,
+that is,
+our prediction is negative and the prediction is correct.
+
+FP:
+the true value is 0 and the predicted value is 1,
+which means that our prediction is positive,
+but the prediction is wrong.
+
+FN:
+the true value is 1 and the predicted value is 0,
+ which means that our prediction is negative,
+  but the prediction is wrong.
+
+TP:
+the true value is 1 and the predicted value is 1,
+which means that our prediction is positive and the
+prediction is correct.
 
 \subsubsection{Accuracy  And Recall}
-\subsubsection{F1 Score}
-\subsubsection{ROC Curve}
-\subsubsection{AUC}
 
+precision:
+
+$$precision=\frac{TP}{TP+FP}$$ 
+
+The accuracy rate is to measure the proportion of
+the number of correctly predicted samples to all
+ samples predicted as positive.
+
+
+
+recall:
+
+$$recall=\frac{TP}{TP+FN}$$ 
+
+Recall rate refers to the number of correctly
+predicted samples in all the data with true
+value of 1.
+\subsubsection{F1 Score}
+F1 score is a harmonic average of accuracy and recall:
+$$F1=\frac{2*precision*recall}{precision+recall}$$ 
+The characteristic of harmonic average is that if
+the two are extremely unbalanced,
+for example, when one value is extremely
+high and the other is extremely low,
+the obtained F1 score value is also very low;
+only when both of them are very high,
+F1 will be high.
+\subsubsection{ROC Curve}
+TPR:
+the recall rate is the percentage of the data
+ predicted to be 1 and the correct number in the
+ true value of 1.
+ $$TPR=recall$$
+
+FPR:
+the number of data with a prediction of 1,
+but a wrong prediction,
+as a percentage of the data whose true value is not 1.
+$$FPR=\frac{FP}{TN+FP}$$ 
+TPR is proportional to FPR,
+and ROC curve is the curve describing these two relationships.
+The closer the ROC curve is to the upper left corner,
+the better the classifier is.
+\subsubsection{AUC}
+AUC (area under curve) refers to the area under the ROC curve.
+The vertical and horizontal axis ranges are (0,1),
+ so the total area is less than 1.
+ The larger the AUC,
+ the better the classification effect.
 \subsection{Unsupervised Evaluation}
+
+For unsupervised learning,
+we can take several common methods,
+such as comparative evaluation,
+generating pseudo tags,
+similarity analysis and so on.
+
+\subsubsection{Comparative Evaluation}
+
+For unsupervised learning, 
+a common evaluation strategy is to rank the 
+results according to the score of outliers, 
+and then iteratively set the threshold from 
+the first to the last. 
+This will form n ancestor values 
+(true positive rate and false positive rate), 
+and a ROC curve can be obtained. 
+The integral AUC of ROC can be used as a measure 
+to test the performance.
+
+
+\subsubsection{Generating Pseudo Tags}
+
+There are a lot of learning efforts to transform 
+unsupervised learning into supervised learning, 
+and there are now feasible methods. 
+Then, 
+we can use the evaluation methods of supervised learning, 
+such as accuracy.
+
+\subsubsection{Similarity Analysis}
+
+Unsupervised learning often depends 
+on the similarity between data, 
+which can be expressed as spatial density 
+or distance measurement. 
+In the evaluation of anomaly detection algorithm, 
+it can be assumed that a large number of normal 
+data are closely adjacent (can form multiple clusters), 
+and outliers are often quite different from these normal points.
 
 \section{Anomaly detection software packages}~\label{sec:tools}
 Although many companies have implemented their own Anomaly detection systems
