@@ -35,17 +35,36 @@ is out of the normal from data.
 
 The Rule-based method works reliably on known anomaly behavior,
 but has the obvious disadvantage of not being capable of
-detecting new anomaly behavior.
+detecting new anomaly behavior~\cite{}.
 The data-based anomaly detection model works by
 identifying anomalies by creating a model of
 the normal patterns in the data,
 and then compute an outlier score of a given data point
-on the basis of the deviations from these patterns.
+on the basis of the deviations from these patterns~\cite{chandola2009anomaly}.
 The main advantage of data-based anomaly detection is that
 it does not require prior knowledge of an intrusion and
 thus can detect new anomaly behavior.
 
-
+There are several metheds been proposed in  academia and 
+used in industry.
+Because there is no rigid definition of which
+observation exactly is an anomalier,
+every method relying on certain assumptions of
+what qualifies as an anomalier.
+Some popular models are based on 
+the distribution of 
+objects~\cite{siripanadorn2010anomaly,chandola2009anomaly,kromanis2013support},
+the distance~\cite{knorr1997unified} 
+between objects,
+or on the density of
+the neighborhood of 
+an object~\cite{agyemang2004algorithm,breunig2000lof,papadimitriou2003loci},
+or based on the ensemble method~\cite{zhou2012ensemble}.
+These methods represent different attempts to make
+the rather vague intuition about 
+what anomalier are more concrete,
+typically in an implicit,
+procedural way.
 However,
 there still serverl challenges of anomaly detection exist
 in the practical  process of industry:
@@ -223,18 +242,28 @@ the detection
 results are sensitive to the selection of the parameters like
 outlier factor threshold and the parameters are difficult to
 determine.
+
 \subsection{Ensembles Based Methods}
 
-Ensemble methods train multiple learners and
-then combine them for use~\cite{zhou2012ensemble}.
-They have already achieved great success in many
-real-world tasks.
-Approach in [13] can be treated as at typical ensemble method, 
-they take advantage of both statistical approach ARIMA and
-deep-learning-based approach CNN to 
-propose an novel network: 
-FuseAD, 
-which shows great improvement on Yahoo Webscope benchmark.
+Because every model is specialized for different 
+characteristics of observations and therefore fits 
+only to some aspects of the “whole truth”,
+it might be a good idea to integrate various different
+outlier detection results,
+producing a consensus of judgements.
+The key idea of such an approach,
+which is called an “ensemble”,
+is that the combination of individual judgements,
+or outlier detection results,
+is beneficial if those judgements do not contain all the same errors.
+One might think of it as a majority vote of a 
+jury: 
+One or another judgement about an observation might be wrong,
+but the majority might still be right,
+as long as the judgements are,
+overall,
+somewhat reliable and every member decides independently from the
+others.
 
 \section{Explain anomaly detection}
 \label{sec-explain_anomaly}
@@ -312,13 +341,13 @@ He et al.~\cite{he2010co}
 demonstrated a method co-selecting the features and 
 relevant anomaliers to 
 describe the differences with inliers. 
-Clearly, 
-all of the above works [21]–[27] and 
-several implicit explanation works like [28]–[30] intended to 
-explain the anomaliers by providing a list of selected abnormal patterns, 
-which cannot be directly visualized and 
-are difficult to understand 
-by those unprofessional users.
+% Clearly, 
+% all of the above works [21]–[27] and 
+% several implicit explanation works like [28]–[30] intended to 
+% explain the anomaliers by providing a list of selected abnormal patterns, 
+% which cannot be directly visualized and 
+% are difficult to understand 
+% by those unprofessional users.
 
 % Unlike classic anomoaly detection method,
 % debate and negotiation are often necessary for group users,
@@ -425,9 +454,9 @@ F1 will be high.
 \subsubsection{ROC Curve}
 TPR:
 the recall rate is the percentage of the data
- predicted to be 1 and the correct number in the
- true value of 1.
- \begin{equation}
+predicted to be 1 and the correct number in the
+true value of 1.
+\begin{equation}
 TPR=recall
  \end{equation}
 
