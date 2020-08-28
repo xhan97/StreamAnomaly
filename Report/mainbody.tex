@@ -68,10 +68,8 @@ The rest of the chapter is organised as follows.
 We first introduce the existing methods of classic anomaly detection,
 in the Section~\ref{sec-method},
 Then,
-we introdeuce the anomaly detect for data stream
-in the Section~\ref{sec-data_stream}.
-In the Section~\ref{sec-explain_anomaly},
-we introdeuce the explaining anomaly detect method.
+we introdeuce the explaining anomaly detect method
+in the Section~\ref{sec-explain_anomaly}.
 Section~\ref{sec:tools} introduce the published tools of
 methods of anomaly detection,
 followed by the conclusions in the last section.
@@ -142,7 +140,7 @@ $p$ objects at least is greater than $d$.
 And then,
 the concept of this distance is extended to k-neighbor distance.
 K-neighbor distance of each object is calculated and
-sorted from small to big in \cite{ramaswamy2000efficient},
+sorted from small to big in~\cite{ramaswamy2000efficient},
 the objects which have largest
 distance are considered abnormal.
 
@@ -237,12 +235,6 @@ deep-learning-based approach CNN to
 propose an novel network: 
 FuseAD, 
 which shows great improvement on Yahoo Webscope benchmark.
-
-
-\section{Anomaly detection for data stream}
-\label{sec-data_stream}
-
-
 
 \section{Explain anomaly detection}
 \label{sec-explain_anomaly}
@@ -369,15 +361,13 @@ which is a 2 * 2 matrix.
   \caption{Confusion Matrix}
   \label{tbl:overall-experiments}
   \begin{tabular}{ccc}
-\toprule
-    % after \\: \hline or \cline{col1-col2} \cline{col3-col4} ...
+  \toprule
     & predicted value 0 & predicted value 1  \\
-\midrule
-    True value 0& TN & FP  \\
-    True value 1& FN & TP  \\
-
-\bottomrule
-\end{tabular}
+  \midrule
+    True value 0 & TN & FP  \\
+    True value 1 & FN & TP  \\
+  \bottomrule
+  \end{tabular}
 \end{table}
 
 
@@ -439,7 +429,9 @@ TPR:
 the recall rate is the percentage of the data
  predicted to be 1 and the correct number in the
  true value of 1.
- $$TPR=recall$$
+ \begin{equation}
+TPR=recall
+ \end{equation}
 
 FPR:
 the number of data with a prediction of 1,
@@ -452,12 +444,13 @@ TPR is proportional to FPR,
 and ROC curve is the curve describing these two relationships.
 The closer the ROC curve is to the upper left corner,
 the better the classifier is.
+
 \subsubsection{AUC}
 AUC (area under curve) refers to the area under the ROC curve.
 The vertical and horizontal axis ranges are (0,1),
- so the total area is less than 1.
- The larger the AUC,
- the better the classification effect.
+so the total area is less than 1.
+The larger the AUC,
+the better the classification effect.
 \subsection{Unsupervised Evaluation}
 
 For unsupervised learning,
@@ -543,13 +536,36 @@ is a benchmarking pipeline for anomaly detection on
 time series data for
 multiple state-of-the-art deep learning methods.
 
-\subsection{RRCF}
-
-RRCF~\cite{bartos_2019_rrcf} (\href{https://travis-ci.org/github/kLabUM/rrcf}{https://travis-ci.org/github/kLabUM/rrcf})
-
-
+% \subsection{RRCF}
+% RRCF~\cite{bartos_2019_rrcf} (\href{https://travis-ci.org/github/kLabUM/rrcf}{https://travis-ci.org/github/kLabUM/rrcf})
 
 \section{Conclusions} \label{sec-conclusions}
+
+Anomoaly detection has been extensively
+attentted in recent years in the modern industry.
+This chapter aimed to present the state of the art 
+anomaly detecttion for practical using in industry.
+This has included anomoaly detection method based on distribution, 
+distance,
+density,
+cluster and ensemble.
+To evaluate anomoaly detection method,
+we reviewed commonly used 
+two categories including supervised and unspervisd.
+In addition,
+we reviewd the explanation of anomoaly detection which
+has been getting more and more attention. 
+Finaly,
+we provided a list of free and open source software packages for
+practitioners to create their own anomaly detection systems.
+
+
+There has been extensive research on the topic of anomoaly detection.
+As this chapter provides only an introduction to this
+topic,
+we recommend a list of books and 
+papers under Further Reading for readers.
+
 
 % \blindtext
 
