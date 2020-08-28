@@ -14,10 +14,10 @@ fault detection,
 event detection in sensor networks,
 and detecting eco-system disturbances.
 
-Anomalies are also refered as outlier in the
-data mining literature.
-Hawkins~\cite{hawkins1980identification} defined
-an outlier as follows:
+An anomalier,
+also refered as outlier, 
+is defined by Hawkins~\cite{hawkins1980identification}
+as follows:
 ``An outlier is an observation which
 deviates so much from the other observations
 as to arouse suspicions that
@@ -31,7 +31,7 @@ well-known anomaly behavior
 with prior knowledge,
 and data-based anomaly detection,
 where looking for behavior that
-is out of the normal.
+is out of the normal from data.
 
 The Rule-based method works reliably on known anomaly behavior,
 but has the obvious disadvantage of not being capable of
@@ -45,7 +45,8 @@ The main advantage of data-based anomaly detection is that
 it does not require prior knowledge of an intrusion and
 thus can detect new anomaly behavior.
 
-Although many anomaly detection methods have been proposed,
+
+However,
 there still serverl challenges of anomaly detection exist
 in the practical  process of industry:
 \begin{enumerate}
@@ -67,7 +68,8 @@ The rest of the chapter is organised as follows.
 We first introduce the existing methods of classic anomaly detection,
 in the Section~\ref{sec-method},
 Then,
-we introdeuce the anomaly detect method in the Section~\ref{sec-data_stream}.
+we introdeuce the anomaly detect for data stream
+in the Section~\ref{sec-data_stream}.
 In the Section~\ref{sec-explain_anomaly},
 we introdeuce the explaining anomaly detect method.
 Section~\ref{sec:tools} introduce the published tools of
@@ -75,6 +77,13 @@ methods of anomaly detection,
 followed by the conclusions in the last section.
 
 \section{Method of Anomaly Detection}~\label{sec-method}
+
+Many data-based anomaly detection methods have been proposed in
+data mining literature.
+The general methods can be divided into four categories as follows: 
+statistical, 
+distance, 
+clustering and Ensemble~\cite{cook2019anomaly}.
 
 \subsection{Statistical Based Methods}
 
@@ -86,22 +95,22 @@ given is bigger than a particular value or range that is
 anomaly~\cite{chandola2009anomaly}.
 This method can be divided into two
 categories: distribution-based method and depth-based
-method.
+method~\cite{wu2016survey}.
 
 The distribution-based method assigns a distribution (such as
 normal distribution,
 Poisson distribution,
 etc.),
 and then the anomaly is found by the method of consistency checking.
-The vast majority tests of anomaly detection based on
-distribution are for a single attribute while a large number
-of abnormal data mining in reality is carried out in a
-multidimensional space.
-In addition,
-the actual distribution of the data set is often unknown,
+However,
+the actual distribution of the data set is always unknown,
 and it is difficult to
 estimate the data distribution in high-dimensional;
-
+To solve the problem, 
+self-organizing map (SOM)~\cite{siripanadorn2010anomaly}, 
+Support Vector Regression~\cite{kromanis2013support} (SVR) and
+other machine learning based techniques are introduced to
+improve those shortcomings.
 
 The depth-based method considers that
 each object is a point in n-dimensional space,
@@ -125,18 +134,17 @@ data space by setting a distance function.
 It is regarded as
 abnormal when there is a large distance between a data
 object and others.
-Knorr et al.
-firstly proposed an anomaly
-detection method based on distance~\cite{knorr1997unified}.
-They consider o as,
-exception if the distance between object o and
-p objects at least is greater than d.
+The  firstly anomaly detection method 
+based on distance is proposed in~\cite{knorr1997unified}.
+It considers $o$ as $DB(p,d)$,
+exception if the distance between object $o$ and
+$p$ objects at least is greater than $d$.
 And then,
 the concept of this distance is extended to k-neighbor distance.
 K-neighbor distance of each object is calculated and
-sorted from small to big by Ramaswamy et al,
+sorted from small to big in \cite{ramaswamy2000efficient},
 the objects which have largest
-distance are considered abnormal~\cite{ramaswamy2000efficient} .
+distance are considered abnormal.
 
 The anomaly detection based on distance combines the ideas
 based on distribution,
@@ -150,8 +158,7 @@ the complexity of the algorithm is relatively high,
 and it cannot take into account
 the data size of data sets and the scalability of dimension.
 Secondly,
-Breunig et al.
-pointed out anomaly detection based on distance is flawed in
+it is pointed out distance based anomaly detection is flawed in
 processing the data sets with obvious internal density
 differences~\cite{breunig2000lof}.
 It either considers the data in the area of sparse
@@ -162,11 +169,6 @@ distance considers all the viewpoints,
 its capability is not good in processing the data which
 contains a variety of distribution or
 are mixed with different densities subset.
-In addition,
-anomaly detection based on distance is very
-sensitive to parameters p and d,
-which requires the users
-having a certain expertise to set the reasonable parameters.
 So,
 its practical application is limited.
 
@@ -229,7 +231,12 @@ Ensemble methods train multiple learners and
 then combine them for use~\cite{zhou2012ensemble}.
 They have already achieved great success in many
 real-world tasks.
-\xhanMarker
+Approach in [13] can be treated as at typical ensemble method, 
+they take advantage of both statistical approach ARIMA and
+deep-learning-based approach CNN to 
+propose an novel network: 
+FuseAD, 
+which shows great improvement on Yahoo Webscope benchmark.
 
 
 \section{Anomaly detection for data stream}
@@ -254,28 +261,72 @@ adjusting some feature of sample according to propsed method to
 make the anomalier to normal.
 
 In the last decade,
-a few methods have been developed to explain predictions
-from supervised models.
-One approach uses an interpretable approximation of
-the original model~\cite{lundberg2017unified};
-examples of methods that
-use an interpretable approximation
-of the original model include: LIME~\cite{ribeiro2016should},
-which is an example of a
-model-agnostic method used to
-explain a prediction using a local model,
-and DeepLIFT~\cite{shrikumar2017learning},
-which is an example of a model-specific method for explaining
-deep learning models in which
-the contributions of all neurons in the network are
-back-propagated to the input features.
-SHAP - SHapley Additive exPlanation ~\cite{lundberg2017unified}
-combines previous methods for
-explaining predictions by calculating feature
-importance,
-using Shapley values from
-game theory that ensures consistency of
-the explanations.
+a few methods have been developed to explain anomaly.
+% One approach uses an interpretable approximation of
+% the original model~\cite{lundberg2017unified};
+% examples of methods that
+% use an interpretable approximation
+% of the original model include: LIME~\cite{ribeiro2016should},
+% which is an example of a
+% model-agnostic method used to
+% explain a prediction using a local model,
+% and DeepLIFT~\cite{shrikumar2017learning},
+% which is an example of a model-specific method for explaining
+% deep learning models in which
+% the contributions of all neurons in the network are
+% back-propagated to the input features.
+% SHAP - SHapley Additive exPlanation ~\cite{lundberg2017unified}
+% combines previous methods for
+% explaining predictions by calculating feature
+% importance,
+% using Shapley values from
+% game theory that ensures consistency of
+% the explanations.
+Most of the existing works focus on mining anomalying features to 
+produce the subspaces where 
+the anomaliers exhibiting most abnormality. 
+Dang et al.~\cite{dang2013local} introduced LODI to 
+seek an optimal subspace where 
+the distance between an anomaliers and 
+inliers can be maximized. 
+Micenkova et al.~\cite{micenkova2013explaining}
+defined separability through the classification error of outliers and 
+inliers, 
+and leveraged it to 
+quantify the explanation within every subspace. 
+Then, 
+they compared the measured explanations and 
+selected the most explanatory subspace as the explanation of the outliers. 
+Dang et al. ~\cite{dang2014discriminative} 
+proposed LOGP to 
+conduct a graph projection on outliers, 
+which would further sort out the abnormal subspaces as the explanation. 
+Duan et al. ~\cite{duan2015mining} 
+demonstrated OAMiner, 
+which focused on efficient mining of the discriminative subspaces. 
+Macha et al.~\cite{macha2018explaining} 
+demonstrated a pattern discover method providing explanations represented as hyper-ellipsoids. 
+They conducted a clustering operation based on the density and 
+purity of the involved instances before searching for the explanations. 
+Then, 
+several other literatures further derived rules to 
+illustrate the deviation between anomaliers and 
+inliers. 
+Muller et al.~\cite{muller2012outrules} 
+introduced OutRules to 
+find normal and abnormal features and 
+produce rules indicating the deviating behavior of anomaliers. 
+He et al.~\cite{he2010co} 
+demonstrated a method co-selecting the features and 
+relevant anomaliers to 
+describe the differences with inliers. 
+Clearly, 
+all of the above works [21]–[27] and 
+several implicit explanation works like [28]–[30] intended to 
+explain the anomaliers by providing a list of selected abnormal patterns, 
+which cannot be directly visualized and 
+are difficult to understand 
+by those unprofessional users.
 
 
 
@@ -355,24 +406,27 @@ prediction is correct.
 
 precision:
 
-$$precision=\frac{TP}{TP+FP}$$ 
+\begin{equation}
+  precision=\frac{TP}{TP+FP}
+\end{equation}
 
 The accuracy rate is to measure the proportion of
 the number of correctly predicted samples to all
  samples predicted as positive.
 
-
-
 recall:
-
-$$recall=\frac{TP}{TP+FN}$$ 
+\begin{equation}
+  recall=\frac{TP}{TP+FN}
+\end{equation}
 
 Recall rate refers to the number of correctly
 predicted samples in all the data with true
 value of 1.
 \subsubsection{F1 Score}
 F1 score is a harmonic average of accuracy and recall:
-$$F1=\frac{2*precision*recall}{precision+recall}$$ 
+\begin{equation}
+  F1=\frac{2*precision*recall}{precision+recall}
+\end{equation}
 The characteristic of harmonic average is that if
 the two are extremely unbalanced,
 for example, when one value is extremely
@@ -391,7 +445,9 @@ FPR:
 the number of data with a prediction of 1,
 but a wrong prediction,
 as a percentage of the data whose true value is not 1.
-$$FPR=\frac{FP}{TN+FP}$$ 
+\begin{equation}
+  FPR=\frac{FP}{TN+FP}
+\end{equation}
 TPR is proportional to FPR,
 and ROC curve is the curve describing these two relationships.
 The closer the ROC curve is to the upper left corner,
