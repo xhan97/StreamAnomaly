@@ -320,8 +320,6 @@ which cannot be directly visualized and
 are difficult to understand 
 by those unprofessional users.
 
-
-
 % Unlike classic anomoaly detection method,
 % debate and negotiation are often necessary for group users,
 % and this calls for understanding of not only the pros but also
@@ -332,14 +330,15 @@ by those unprofessional users.
 
 \section{Evaluation of Anomaly Detection}
 
-After the implementation of anomaly 
-detection algorithm,
-The next step is to evaluate the 
-anomaly detection algorithm.
-According to the actual situation, 
-we can evaluate the procedural law 
-from two aspects: supervised learning 
-and unsupervised learning.
+The evaluation metrics are essential for 
+building successful anomaly detection system. 
+Efforts have been made to identify the correct way of
+measuring the quality of anomaly detection. 
+This section
+reviews common evaluation metrics from two aspects: 
+supervised detection 
+and unsupervised detection which is 
+distinguished by whether have labeled dataset.
 
 \subsection{Supervised Evaluation}
 At present, 
@@ -392,26 +391,25 @@ the true value is 1 and the predicted value is 1,
 which means that our prediction is positive and the
 prediction is correct.
 
-\subsubsection{Accuracy  And Recall}
+\subsubsection{Precision}
 
-precision:
+The precision rate is to measure the proportion of
+the number of correctly predicted samples to all
+samples predicted as positive~\cite{ting2010precision}.
 
 \begin{equation}
   precision=\frac{TP}{TP+FP}
 \end{equation}
 
-The accuracy rate is to measure the proportion of
-the number of correctly predicted samples to all
- samples predicted as positive.
+\subsubsection{Recall}
+Recall rate refers to the number of correctly
+predicted samples in all the data with true
+value of 1.
 
-recall:
 \begin{equation}
   recall=\frac{TP}{TP+FN}
 \end{equation}
 
-Recall rate refers to the number of correctly
-predicted samples in all the data with true
-value of 1.
 \subsubsection{F1 Score}
 F1 score is a harmonic average of accuracy and recall:
 \begin{equation}
@@ -448,16 +446,29 @@ the better the classifier is.
 \subsubsection{AUC}
 AUC (area under curve) refers to the area under the ROC curve.
 The vertical and horizontal axis ranges are (0,1),
-so the total area is less than 1.
+so the total area is less than 1~\cite{bradley1997use}.
 The larger the AUC,
 the better the classification effect.
-\subsection{Unsupervised Evaluation}
 
-For unsupervised learning,
-we can take several common methods,
+Intuitively, 
+the ROC AUC value can be seen as the probability that a pair
+of two randomly chosen objects,
+one positive example (outlier) 
+and one negative example (inlier),
+is sorted correctly
+(i.e.,
+the outlier is ranked before the inlier)~\cite{hanley1982meaning}.
+ROC curves
+and ROC AUC analysis inherently treat the class imbalance
+problem by using the relative frequencies which makes them
+particularly popular for evaluation of outlier detection
+
+\subsection{Unsupervised Evaluation}
+If some task have no labeled dataset,
+the unsupervised evaluation method 
 such as comparative evaluation,
 generating pseudo tags,
-similarity analysis and so on.
+and similarity analysis could be used.
 
 \subsubsection{Comparative Evaluation}
 
