@@ -1,22 +1,22 @@
 %=================================================================
 \section{Introduction}\label{sec-intro}
 
-Data is the new oil for the industry and
-it can be used for empowering processes with
-new business-related insights
-(e.g. to define new customer groups through predictive analytics).
-At the same time data is a critical asset of a company and
-can be used for detecting the anomaly behavior or event
-such as for
-intrusion detection~\cite{garcia2009anomaly},
+For the modern industry, 
+data is a new oil and 
+can be used to strengthen processes with new business data 
+such as defining new customer groups through proactive analysis. 
+Meanwhile, 
+data is a critical resource for a company and 
+can be used to detect anomalies or events such as 
+intrusion detection~\cite{garcia2009anomaly}, 
+fault detection~\cite{hwang2009survey}, 
 fraud detection~\cite{bolton2002statistical},
-fault detection~\cite{hwang2009survey} and
 event detection in social networks~\cite{sakaki2010earthquake}.
 
 An anomalier,
-also refered as outlier, 
+also refered as outlier,
 is defined by Hawkins~\cite{hawkins1980identification}
-as follows: 
+as follows:
 \begin{quotation}
 ``An outlier is an observation which
 deviates so much from the other observations
@@ -36,7 +36,7 @@ is out of the normal from data.
 
 The Rule-based method works reliably on known anomaly behavior,
 but has the obvious disadvantage of not being capable of
-detecting new anomaly behavior~\cite{}.
+detecting new anomaly behavior~\cite{chandola2009anomaly}.
 The data-based anomaly detection model works by
 identifying anomalies by creating a model of
 the normal patterns in the data,
@@ -46,23 +46,23 @@ The main advantage of data-based anomaly detection is that
 it does not require prior knowledge of an intrusion and
 thus can detect new anomaly behavior.
 
-Many metheds have been proposed in academia and 
+Many metheds have been proposed in academia and
 widely used in industry.
 Because there is no rigid definition of which
 observation exactly is an anomalier,
 every method relying on certain assumptions of
 what qualifies as an anomalier.
-Some popular models are based on 
-the distribution of 
+Some popular models are based on
+the distribution of
 objects~\cite{siripanadorn2010anomaly,chandola2009anomaly,kromanis2013support},
-the distance~\cite{knorr1997unified} 
+the distance~\cite{knorr1997unified}
 between objects,
 or on the density of
-the neighborhood of 
+the neighborhood of
 an object~\cite{agyemang2004algorithm,breunig2000lof,papadimitriou2003loci},
 or based on the ensemble method~\cite{zhou2012ensemble}.
 These methods represent different attempts to make
-the rather vague intuition about 
+the rather vague intuition about
 what anomalier are more concrete,
 typically in an implicit,
 procedural way.
@@ -70,7 +70,7 @@ However,
 serverl challenges still exist
 in the practical  process of industry:
 \begin{enumerate}
-    \item There are few or no labeled data sets in 
+    \item There are few or no labeled data sets in
     many real industry systems.
     % \item Anomaly Detecion in Data stream.
     % In the practical process of industry,
@@ -98,66 +98,66 @@ followed by the conclusions in the last section.
 
 Many data-based anomaly detection methods have been proposed in
 data mining literature.
-The general methods can be divided into four categories as follows: 
-statistical, 
-distance, 
+The general methods can be divided into four categories as follows:
+statistical,
+distance,
 clustering and Ensemble~\cite{cook2019anomaly}.
 
 \subsection{Statistical Based Methods}
 
-Anomaly detection based on statistical is the earliest and
-most studied method.
-A data object is considered as anomalier when the differences
-between the data and the statistical distribution or the model
-given is bigger than a particular value or range ~\cite{chandola2009anomaly}.
-This method can be divided into two
-categories: distribution-based method and depth-based
-method~\cite{wu2016survey}.
+The statistical based detection is the earliest method. 
+If the difference between the data and the statistical 
+distribution or the specified model 
+is greater than a specific value or range~\cite{chandola2009anomaly}, 
+the data object is considered as anomalier. 
+The statistical based detection include two special method: 
+distribution-based approach and 
+depth-based approach~\cite{wu2016survey}.
 
 As for distribution-based method,
 after given a distribution (such as
 normal distribution,
 Poisson distribution,
-etc.), 
+etc.),
 a method of consistency checking is used to find anomalier.
 However,
 the actual distribution of the data set is always unknown,
-and it is another huge challenge to 
-estimate the data distribution in high-dimensional. 
-To solve those problem, 
-self-organizing map (SOM)~\cite{siripanadorn2010anomaly}, 
+and it is another huge challenge to
+estimate the data distribution in high-dimensional.
+To solve those problem,
+self-organizing map (SOM)~\cite{siripanadorn2010anomaly},
 Support Vector Regression~\cite{kromanis2013support} (SVR) and
 other machine learning based techniques are introduced to
 improve those shortcomings.
 
-The depth-based method considers that
-each object is a point in n-dimensional space
-with one set depth,
-and anomaly possibly exists in the object which has lower depth.
-This process avoids the data distribution estimating problem of 
-distribution based method.
-However,
-a convex closure of n-dimensional space needs to been calculate.
-Therefore,
-it has higher calculation complexity,
-only suitable for low dimensional,
-and has a low efficiency
-on large data sets with higher dimensions~\cite{ruts1996computing}.
-The principal component analysis (PCA)~\cite{deng2013modified}, 
-independent component analysis (ICA) and 
-partial least squares (PLS)~\cite{yin2014improved} is
-widely used in this category.
+
+The depth-based approach takes into account 
+that each object is a point with 
+a specified depth in n-dimensional space, 
+and that a data object  may be anomalier with a lower depth. 
+This process do not need to estimate the data distribution as
+distribution-based methods do. 
+However, 
+it must calculate the convex closure in the n-dimensional space. 
+Therefore, 
+it has a high computational complexity, 
+is only suitable for low-dimensional dataset, 
+and has a low efficiency in high-dimensional large data sets~\cite{ruts1996computing}. 
+Primary Component Analysis (PCA)~\cite{deng2013modified}, 
+Independent Component Analysis (ICA), 
+and Partial Minimum Square (PLS)\cite{yin2014improved} 
+are commonly used in this category.
 
 \subsection{Distance Based Methods}
 
 The basic idea of distance based anomaly detection
 is to calculate the distance between data points in
 data space after setting a distance function.
-A data object is regarded as anomalier when 
+A data object is regarded as anomalier when
 the distance between  itself and others is large.
-The firstly anomaly detection method 
+The firstly anomaly detection method
 based on distance is proposed in~\cite{knorr1997unified}.
-Then it is extended to using K-neighbor distance to 
+Then it is extended to using K-neighbor distance to
 build the anomaly detector~\cite{ramaswamy2000efficient,kuang2008anomaly}.
 The K-neighbor distance of each object is calculated and
 sorted from small to big,
@@ -171,10 +171,10 @@ But it has some disadvantages.
 Firstly,
 the complexity of the algorithm is relatively high,
 such as the computation complexity of KNN is $O(m^2)$,
-and it cannot consider the size of 
+and it cannot consider the size of
 data sets and the scalability of data dimension.
 Secondly,
-it is pointed out distance based anomaly detection become invalid when 
+it is pointed out distance based anomaly detection become invalid when
 the data sets has obvious internal density
 differences~\cite{breunig2000lof}.
 Its capability is not good in processing the data which
@@ -185,80 +185,80 @@ distance considers from all the viewpoints.
 Thus the practical application  of distance based methods is limited.
 
 \subsection{Density Based Methods}
-All the methods above have a common problem,
+
+The statistical based and distance based methods have a common problem,
 that is,
-a global distance criterion is considered as
-the basis for anomaly detection.
-In fact,
-the anomaly is usually detected
-from the perspective of individual,
-that is,
-the anomaly point is far from its neighbor cluster.
-So it is not appropriate
-to use global distance.
-To solve this problem,
-several anomaly detection
-algorithm based
-on density is proposed .
-Its basic idea is detecting anomaly by comparing
-the density of object and its neighbor.
-Breunig et al. introduce local
-outlier factor (LOF),
-considers the exception is not a
-two-value property but a measure.
-The LOF value higher,
-the data is more likely to be abnormal~\cite{breunig2000lof}.
-Agyemang et al.
-proposed local sparsity coefficient (LCF) to
-detect anomaly and reduce
-the computational complexity by considering
-the largest distance between the nearest k objects as
-k-distance~\cite{agyemang2004algorithm}.
-Furthermore,
-Papadimitriou et al. got multi-granularity
-deviation factor (MDEF) by
-comparing the number of data objects in r-neighbor and
-their mean values,
-took it the measure of abnormal~\cite{papadimitriou2003loci}.
-This method does not need to calculate the density of data
-points,
-and the computational efficiency is higher than LOF.
-The idea based on density is closer to Hawkins’ exception
-definition~\cite{hawkins1980identification}
-than the idea based on distance.
-So it can detect the local anomaly,
-reduce the detection error which contains
-a variety of distribution or are mixed with different
-densities subset,
-have a higher detection precision.
+the overall distance criterion is used as the basis for the detection of anomalies.
 However,
-its time complexity is still high,
-the detection
-results are sensitive to the selection of the parameters like
-outlier factor threshold and the parameters are difficult to
-determine.
+anomalies are usually detected from an individual's point of view,
+i.e.
+the anomalies are far from their neighboring clusters.
+Therefore,
+it is not appropriate to use the overall distance.
+Many density-based anomaly detection algorithms are proposed
+in order to solve this problem.
+The Local Outlier Factor (LOF)~\cite{breunig2000lof}
+is a very powerful density-based anomaly detection method.
+Its basic idea is to detect anomalies by comparing the local density of an object to the local density of its neighbors,
+so that areas of similar density can be identified.
+If the density of the data object is
+much lower than that of its neighbors.
+These are considered abnormal.
+
+Local parsimony factor (LCF) is proposed to
+detect anomalies and reduces the complexity of the
+computation by considering the maximum distance between
+the k nearest objects as k distances~\cite{agyemang2004algorithm}.
+In addition,
+Papadimitriou et al. comparing the number of data objects in r neighbors and their mean value,
+we obtain the multi-granularity deviation factor (MDEF),
+which is used as a measure of anomaly~\cite{papadimitriou2003loci}.
+This method does not need to calculate the density of the data points,
+and the efficiency of the calculation is greater than LOF.
+The density-based idea is closer to Hawkins' definition of
+exception than the distance-based idea~\cite{hawkins1980identification}.
+Therefore,
+it can detect local anomalies,
+reduce detection errors which include multiple
+distributions or mix with different density subsets,
+and have high detection accuracy.
+However,
+the time complexity is still very high,
+and the result of detection  is sensitive to
+the selection of parameters such as the threshold of the outlier,
+which is difficult to determine.
 
 \subsection{Ensembles Based Methods}
 
-Because every model is specialized for different 
-characteristics of observations and therefore fits 
-only to some aspects of the “whole truth”,
-it might be a good idea to integrate various different
-outlier detection results,
-producing a consensus of judgements.
-The key idea of such an approach,
-which is called an “ensemble”,
-is that the combination of individual judgements,
-or outlier detection results,
-is beneficial if those judgements do not contain all the same errors.
-One might think of it as a majority vote of a 
-jury: 
-One or another judgement about an observation might be wrong,
-but the majority might still be right,
-as long as the judgements are,
-overall,
-somewhat reliable and every member decides independently from the
-others.
+Because each model is specifically designed
+for different characteristics of perception.
+It is only applicable to certain aspects of
+the ``whole truth''.
+So it is best to integrate different
+third-party observational results to reach consensus.
+The main idea of this method (called ``ensemble'')
+is that if these judgments do not contain all the same errors.
+It is useful to combine individual judgments or
+the results of marginalized observations~\cite{zhou2012ensemble}.
+One would think that this is a majority vote of
+the jury:
+one or another judgment on the statement may be wrong.
+but the majority judgment is still correct as long as
+the judgment is generally reliable.
+FuseAD~\cite{munir2019fusead} can be treated as
+at typical ensemble method, 
+they take advantage of both statistical approach ARIMA 
+and deep-learning-based approach 
+CNN to propose an novel network: 
+it shows great improvement on Yahoo Webscope benchmark.
+
+However, 
+we found that all the approaches mentioned above 
+have no considerations for explanation of anomaly detection, 
+and it is meaningful in practical process of industry. 
+Therefore it is meaningful to put some works into use 
+certain approach for explaning the  anomaly detection.
+
 
 \section{Explain anomaly detection}
 \label{sec-explain_anomaly}
@@ -276,72 +276,68 @@ This process will help the users to make decision such as
 adjusting some feature of sample according to propsed method to
 make the anomalier to normal.
 
-In the last decade,
-a few methods have been developed to explain anomaly.
-% One approach uses an interpretable approximation of
-% the original model~\cite{lundberg2017unified};
-% examples of methods that
-% use an interpretable approximation
-% of the original model include: LIME~\cite{ribeiro2016should},
-% which is an example of a
-% model-agnostic method used to
-% explain a prediction using a local model,
-% and DeepLIFT~\cite{shrikumar2017learning},
-% which is an example of a model-specific method for explaining
-% deep learning models in which
-% the contributions of all neurons in the network are
-% back-propagated to the input features.
-% SHAP - SHapley Additive exPlanation ~\cite{lundberg2017unified}
-% combines previous methods for
-% explaining predictions by calculating feature
-% importance,
-% using Shapley values from
-% game theory that ensures consistency of
-% the explanations.
-Most of the existing works focus on mining anomalying features to 
-produce the subspaces where 
-the anomaliers exhibiting most abnormality. 
-Dang et al.~\cite{dang2013local} introduced LODI to 
-seek an optimal subspace where 
-the distance between an anomaliers and 
-inliers can be maximized. 
+Over the last decade,
+several methods have been developed to explain the models.
+One method consists of using an approximate approximation of 
+the original model~\cite{lundberg2017unified}.
+Examples of interpretive approximation methods using
+the original model: 
+LIME~\cite{ribeiro2016should} 
+(this is an example of a model-independent method 
+used to explain predictions using local models) and 
+DeepLIFT~\cite{shrikumar2017learning} 
+(used to explain local models Example).
+A model-specific method for interpreting deep learning models 
+in which the contribution of all neurons in the network is 
+propagated back to the input properties.
+SHAP - SHapley Additive exPlanation ~\cite{lundberg2017unified} uses 
+Shapley value in game theory to ensure feature consistency combined
+with previous methods and 
+interprets predictions by calculating the importance of features.
+
+Most of the existing works focus on mining anomalying features to
+produce the subspaces where
+the anomaliers exhibiting most abnormality.
+Dang et al.~\cite{dang2013local} introduced LODI to
+seek an optimal subspace where
+the distance between an anomaliers and
+inliers can be maximized.
 Micenkova et al.~\cite{micenkova2013explaining}
-defined separability through the classification error of outliers and 
-inliers, 
-and leveraged it to 
-quantify the explanation within every subspace. 
-Then, 
-they compared the measured explanations and 
-selected the most explanatory subspace as the explanation of the outliers. 
-Dang et al. ~\cite{dang2014discriminative} 
-proposed LOGP to 
-conduct a graph projection on outliers, 
-which would further sort out the abnormal subspaces as the explanation. 
-Duan et al. ~\cite{duan2015mining} 
-demonstrated OAMiner, 
-which focused on efficient mining of the discriminative subspaces. 
-Macha et al.~\cite{macha2018explaining} 
-demonstrated a pattern discover method providing explanations represented as hyper-ellipsoids. 
-They conducted a clustering operation based on the density and 
-purity of the involved instances before searching for the explanations. 
-Then, 
-several other literatures further derived rules to 
-illustrate the deviation between anomaliers and 
-inliers. 
-Muller et al.~\cite{muller2012outrules} 
-introduced OutRules to 
-find normal and abnormal features and 
-produce rules indicating the deviating behavior of anomaliers. 
-He et al.~\cite{he2010co} 
-demonstrated a method co-selecting the features and 
-relevant anomaliers to 
-describe the differences with inliers. 
-% Clearly, 
-% all of the above works [21]–[27] and 
-% several implicit explanation works like [28]–[30] intended to 
-% explain the anomaliers by providing a list of selected abnormal patterns, 
-% which cannot be directly visualized and 
-% are difficult to understand 
+defined separability through the classification error of outliers and
+inliers,
+and leveraged it to
+quantify the explanation within every subspace.
+Then,
+they compared the measured explanations and
+selected the most explanatory subspace as the explanation of the outliers.
+LOGP is proposed ~\cite{dang2014discriminative}  to
+conduct a graph projection on outliers,
+which would further sort out the abnormal subspaces as the explanation.
+Duan et al. ~\cite{duan2015mining}
+demonstrated OAMiner,
+which focused on efficient mining of the discriminative subspaces.
+Macha et al.~\cite{macha2018explaining}
+demonstrated a pattern discover method providing explanations represented as hyper-ellipsoids.
+They conducted a clustering operation based on the density and
+purity of the involved instances before searching for the explanations.
+Then,
+several other literatures further derived rules to
+illustrate the deviation between anomaliers and
+inliers.
+Muller et al.~\cite{muller2012outrules}
+introduced OutRules to
+find normal and abnormal features and
+produce rules indicating the deviating behavior of anomaliers.
+He et al.~\cite{he2010co}
+demonstrated a method co-selecting the features and
+relevant anomaliers to
+describe the differences with inliers.
+% Clearly,
+% all of the above works [21]–[27] and
+% several implicit explanation works like [28]–[30] intended to
+% explain the anomaliers by providing a list of selected abnormal patterns,
+% which cannot be directly visualized and
+% are difficult to understand
 % by those unprofessional users.
 
 % Unlike classic anomoaly detection method,
@@ -354,20 +350,19 @@ describe the differences with inliers.
 
 \section{Evaluation of Anomaly Detection}
 
-The evaluation metrics are essential for 
-building successful anomaly detection system. 
-Efforts have been made to identify the correct way of
-measuring the quality of anomaly detection. 
-This section
-reviews common evaluation metrics from two aspects: 
-supervised detection 
-and unsupervised detection which is 
+Evaluation metrics are critical to building a 
+successful anomaly detection system. 
+Efforts have been made to determine the 
+correct method for measuring the quality of abnormal detection. 
+This section examines general evaluation metrics from two aspects: 
+supervised detection
+and unsupervised detection which is
 distinguished by whether have labeled dataset.
 
 \subsection{Supervised Evaluation}
 When the labeled dataset is valuable,
-the supervised evaluation method could be used. 
-At present, 
+the supervised evaluation method could be used.
+At present,
 the popular evaluation methods of supervised learning
 include accuracy and recall,
 F1 score,
@@ -376,30 +371,30 @@ and AUC.
 
 \subsubsection{Confusion Matrix}
 The confusion matrix,
-as shown in Table~\ref{tb:confusion}, 
-is a table two dimensions 
-where each row of the matrix represents the instances 
-in a predicted class while 
-each column represents the instances 
+as shown in Table~\ref{tb:confusion},
+is a table two dimensions
+where each row of the matrix represents the instances
+in a predicted class while
+each column represents the instances
 in an actual class~\cite{powers2011evaluation}.
-TP means true positives 
+TP means true positives
 (i.e. items correctly labeled as belonging to the positive
-class), 
-FP means false positives 
+class),
+FP means false positives
 (i.e. items incorrectly labeled as belonging to the
-positive class), 
-FN means false negatives 
+positive class),
+FN means false negatives
 (i.e. items which were not labeled as
 belonging to the positive class but should have been).
-TN means true negative 
+TN means true negative
 (i.e. items correctly labeled as belonging to the negative
 class).
 
 \begin{table}  \centering
-  \caption{Confusion Matrix. 
-  TP is True Positive; 
-  FP is False Positive; 
-  TN is True Negative; 
+  \caption{Confusion Matrix.
+  TP is True Positive;
+  FP is False Positive;
+  TN is True Negative;
   FN is False Negative. }
   \label{tb:confusion}
   \begin{tabular}{ccc}
@@ -415,8 +410,8 @@ class).
 
 \subsubsection{Precision}
 
-The \textit{Precision} Precision
-measures the ratio of examples classied as positive that 
+The \textit{Precision} measures the ratio of
+examples classied as positive that
 are truly positive~\cite{ting2010precision}.
 
 \begin{equation}
@@ -432,24 +427,22 @@ The \textit{Recall} measures the ratio of positive examples that
 \end{equation}
 
 \subsubsection{F1 Score}
-The \textit{F1 score} is a tradeoff between 
+The \textit{F1 score} is a tradeoff between
 the \textit{Precision} and \textit{Recall}:
 \begin{equation}
   F1=\frac{2*precision*recall}{precision+recall}
 \end{equation}
 F1 metric weights recall and
-precision equally, 
-and a good detection algorithm will 
+precision equally,
+and a good detection algorithm will
 maximize both precision and
 recall simultaneously.
-Moderately good performance on 
+Moderately good performance on
 both will be favored over
-extremely good performance on 
+extremely good performance on
 one and poor performance on the other.
 
-\subsubsection{ROC Curve}
-
-
+%\subsubsection{ROC Curve}
 \subsubsection{AUC}
 \textit{AUC} (area under curve) refers to the area under the \textit{ROC curve}.
 The vertical and horizontal axis ranges are (0,1),
@@ -457,68 +450,68 @@ so the total area is less than 1~\cite{bradley1997use}.
 The larger the \textit{AUC},
 the better the classification effect.
 
-The \textit{AUC} value can be seen as the probability that a pair
-of two randomly chosen objects,
-one positive example (outlier) 
-and one negative example (inlier),
-is sorted correctly
+The \textit{AUC} value can be think as the probability that 
+the two randomly selected objects (positive example (anomalier) 
+and negative example (normalier)) are arranged correctly 
 (i.e.,
-the outlier is ranked before the inlier)~\cite{hanley1982meaning}.
-\textit{ROC curves}
-and \textit{AUC} analysis inherently treat the class imbalance
-problem by using the relative frequencies which makes them
-particularly popular for evaluation of outlier detection.
+anomalier is classified before the normalier value)~\cite{hanley1982meaning}.
+The \textit{ROC curve} and \textit{AUC} 
+analysis inherently address the problem of imbalance using
+relative frequencies,
+making them particularly popular in evaluating 
+the detection of exclusion.
 
 
 \subsection{Unsupervised Evaluation}
 If some task have no labeled dataset,
-the unsupervised evaluation method 
+the unsupervised evaluation method
 such as comparative evaluation,
 generating pseudo tags,
 and similarity analysis could be used.
 
 \subsubsection{Comparative Evaluation}
 
-For unsupervised learning, 
-a common evaluation strategy is to rank the 
-results according to the score of outliers, 
-and then iteratively set the threshold from 
-the first to the last. 
-This will form n ancestor values 
-(true positive rate and false positive rate), 
-and a ROC curve can be obtained. 
-The integral AUC of ROC can be used as a measure 
+For unsupervised learning,
+a common evaluation strategy is to rank the
+results according to the score of outliers,
+and then iteratively set the threshold from
+the first to the last.
+This will form n ancestor values
+(true positive rate and false positive rate),
+and a ROC curve can be obtained.
+The integral AUC of ROC can be used as a measure
 to test the performance.
 
 
 \subsubsection{Generating Pseudo Tags}
 
-There are a lot of learning efforts to transform 
-unsupervised learning into supervised learning, 
-and there are now feasible methods. 
-Then, 
-we can use the evaluation methods of supervised learning, 
+There are a lot of learning efforts to transform
+unsupervised learning into supervised learning,
+and there are now feasible methods.
+Then,
+we can use the evaluation methods of supervised learning,
 such as accuracy.
 
 \subsubsection{Similarity Analysis}
 
-Unsupervised learning often depends 
-on the similarity between data, 
-which can be expressed as spatial density 
-or distance measurement. 
-In the evaluation of anomaly detection algorithm, 
-it can be assumed that a large number of normal 
-data are closely adjacent (can form multiple clusters), 
+Unsupervised learning often depends
+on the similarity between data,
+which can be expressed as spatial density
+or distance measurement.
+In the evaluation of anomaly detection algorithm,
+it can be assumed that a large number of normal
+data are closely adjacent (can form multiple clusters),
 and outliers are often quite different from these normal points.
 
 \section{Anomaly detection software packages}~\label{sec:tools}
-Although many companies have implemented their own Anomaly detection systems
-to accommodate their specific business needs,
-there are still many free/ open source recommender system
-software packages available.
-In this section,
-we review some popular software packages for practitioners
-to build their anomaly detection systems.
+Many companies have build 
+their own anomaly detection systems in order to 
+meet their specific business needs. 
+However,
+there are still many open source anomaly detection packages available. 
+In this section, 
+we review some of the popular software packages for 
+practitioners to build their anomaly detection systems.
 
 \subsection{ADTK}
 
@@ -528,19 +521,16 @@ unsupervised / rule-based time series anomaly detection.
 \subsection{PyOdds}
 
 PyODDS (\href{http://pyodds.com/}{http://pyodds.com/}) is an end-to end Python system for
-outlier detection with database support.
-PyODDS provides outlier detection algorithms,
-which support both static and time-series data.
+outlier detection. 
+It provides several anomalier detection algorithms and 
+support both static and time-series data type.
 
 \subsection{PyOD}
-
 PyOD~\cite{zhao2019pyod} (\href{https://pypi.org/project/pyod/}{https://pypi.org/project/pyod/})
 is a comprehensive and scalable Python toolkit for
-detecting outlying objects in multivariate data.
-It contains more than 20 detection algorithms,
-including emerging deep learning models and
-outlier ensembles.
-
+detecting anomalier in multivariable data.  
+It includes more than 20 detection algorithms, 
+including new deep learning models and ensembles methods.
 \subsection{Anomaly Detection Toolbox}
 
 Anomaly Detection Toolbox
@@ -561,28 +551,25 @@ multiple state-of-the-art deep learning methods.
 
 Anomoaly detection has been extensively
 attentted in recent years in the modern industry.
-This chapter aimed to present the state of the art 
+This chapter aimed to present the state of the art
 anomaly detecttion for practical using in industry.
-This has included anomoaly detection method based on distribution, 
+This has included anomoaly detection method based on distribution,
 distance,
 density,
 cluster and ensemble.
 To evaluate anomoaly detection method,
-we reviewed commonly used 
+we reviewed commonly used
 two categories including supervised and unspervisd.
 In addition,
 we reviewd the explanation of anomoaly detection which
-has been getting more and more attention. 
+has been getting more and more attention.
 Finaly,
 we provided a list of free and open source software packages for
 practitioners to create their own anomaly detection systems.
 
-
-There has been extensive research on the topic of anomoaly detection.
-As this chapter provides only an introduction to this
-topic,
-we recommend a list of books and 
-papers under Further Reading for readers.
+A wide range of studies have been carried out in the field of abnormal detection. 
+As this chapter only coveres this topic, 
+we recommend reader to read more detail in the references of this chapter.
 
 
 % \blindtext
