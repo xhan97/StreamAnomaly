@@ -72,6 +72,7 @@ in the practical  process of industry:
 \begin{enumerate}
     \item There are few or no labeled data sets in
     many real industry systems.
+    This makes it is difficult to design anomaly detection method and evaluate it. 
     % \item Anomaly Detecion in Data stream.
     % In the practical process of industry,
     % the value of dataset is usually infinity.
@@ -90,6 +91,8 @@ in the Section~\ref{sec-method},
 Then,
 we introdeuce the explaining anomaly detect method
 in the Section~\ref{sec-explain_anomaly}.
+In the Section~\ref{sec:evaluate},
+we introduce the popular evaluation method in anomaly detetction.
 Section~\ref{sec:tools} introduce the published tools of
 methods of anomaly detection,
 followed by the conclusions in the last section.
@@ -271,7 +274,7 @@ i.e. why are these samples are recorded as anomalies?
 The  goal of explanation is not only to
 convince the users about the proposed anomoaly detection method,
 but also helping the users to understand behavior about
-the .
+the anomaliers.
 This process will help the users to make decision such as
 adjusting some feature of sample according to propsed method to
 make the anomalier to normal.
@@ -332,24 +335,8 @@ He et al.~\cite{he2010co}
 demonstrated a method co-selecting the features and
 relevant anomaliers to
 describe the differences with inliers.
-% Clearly,
-% all of the above works [21]–[27] and
-% several implicit explanation works like [28]–[30] intended to
-% explain the anomaliers by providing a list of selected abnormal patterns,
-% which cannot be directly visualized and
-% are difficult to understand
-% by those unprofessional users.
 
-% Unlike classic anomoaly detection method,
-% debate and negotiation are often necessary for group users,
-% and this calls for understanding of not only the pros but also
-% the cons of the proposed recommendations.
-% While existing explanation approaches focus on
-% determining how good the recommendation is for the user,
-% it is now desirable to know how bad the recommendation is for each group user.
-
-\section{Evaluation of Anomaly Detection}
-
+\section{Evaluation of Anomaly Detection}~\label{sec:evaluate}
 Evaluation metrics are critical to building a 
 successful anomaly detection system. 
 Efforts have been made to determine the 
@@ -420,7 +407,7 @@ are truly positive~\cite{ting2010precision}.
 
 \subsubsection{Recall}
 The \textit{Recall} measures the ratio of positive examples that
- are correctly labeled.
+are correctly labeled.
 
 \begin{equation}
   recall=\frac{TP}{TP+FN}
