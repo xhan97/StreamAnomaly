@@ -1,6 +1,47 @@
 %=================================================================
 \section{Introduction}\label{sec-intro}
 
+
+Referred to as “big data,” 
+a term that describes the large and distributed 
+nature of the data sets,
+this area has recently become a focus of scholarship.
+Gartner [3] defnes big
+data as high-volume,
+high-velocity,
+and high-variety data sets that demand cost-efective
+novel data analytics for decision-making and to infer useful insights.
+In recent years,
+the core challenges of big data have been widely established.
+These are contained within the
+five Vs of big data—value,
+veracity,
+variety,
+velocity,
+and volume.
+
+Value refers to the benefts associated with the analysis of data; veracity refers to the
+accuracy of the data; and variety refers to the many types of data,
+such as structured,
+semi-structured,
+or unstructured.
+Volume is the amount of data that is being accumulated (i.e.,
+the size of the data)—the larger the dimensionality of the data,
+the larger
+the volume.
+Dimensionality refers to the number of features or attributes or variables within the data available for analysis.
+By contrast,
+velocity refers to the “speed” at
+which the data are generated and may contain many dimensions.
+Tese elements of
+the current defnition of big data address basic challenges.
+However,
+such a defnition
+ignores another important aspect: “dimensionality,” which
+plays a crucial role in realworld data analysis [4,5].
+Te increase in dimensions or features or attributes poses
+signifcant challenges for anomaly detection in large data sets.
+
 For the modern industry, 
 data is a new oil and 
 can be used to strengthen processes with new business data 
@@ -133,23 +174,20 @@ Support Vector Regression~\cite{kromanis2013support} (SVR) and
 other machine learning based techniques are introduced to
 improve those shortcomings.
 
-
 The depth-based approach takes into account 
 that each object is a point with 
 a specified depth in n-dimensional space, 
 and that a data object  may be anomalier with a lower depth. 
 This process do not need to estimate the data distribution as
 distribution-based methods do. 
-However, 
-it must calculate the convex closure in the n-dimensional space. 
-Therefore, 
-it has a high computational complexity, 
-is only suitable for low-dimensional dataset, 
-and has a low efficiency in high-dimensional large data sets~\cite{ruts1996computing}. 
+Although some dimention reduction techniques such as  
 Primary Component Analysis (PCA)~\cite{deng2013modified}, 
 Independent Component Analysis (ICA), 
 and Partial Minimum Square (PLS)\cite{yin2014improved} 
-are commonly used in this category.
+are commonly used in this category,
+it still has a high computational complexity and 
+has a low efficiency in the big data with 
+high-dimensional and large data sets.
 
 \subsection{Distance Based Methods}
 
