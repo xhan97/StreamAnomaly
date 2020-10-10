@@ -136,7 +136,7 @@ Section~\ref{sec:tools} introduce the published tools of
 methods of anomaly detection,
 followed by the conclusions in the last section.
 
-\section{Method of Anomaly Detection}~\label{sec-method}
+\section{Traditional Method of Anomaly Detection}~\label{sec-method}
 
 Many data-based anomaly detection methods have been proposed in
 data mining literature.
@@ -299,78 +299,80 @@ Therefore it is meaningful to put some works into use
 certain approach for explaning the  anomaly detection.
 
 
-\section{Explain anomaly detection}
-\label{sec-explain_anomaly}
-Explaining anomaly detection is the task of making
-the anomaly detection process more transparent to the users,
-i.e. why are these samples are recorded as anomalies?
-% The Explaining anomaly detection task refers to
-% making users fully understand the anomaly behavior.
-% However,
-The  goal of explanation is not only to
-convince the users about the proposed anomoaly detection method,
-but also helping the users to understand behavior about
-the anomaliers.
-This process will help the users to make decision such as
-adjusting some feature of sample according to propsed method to
-make the anomalier to normal.
+\section{Challenges in bigdata}
+\label{sec-challenge-big}
 
-Over the last decade,
-several methods have been developed to explain the models.
-One method consists of using an approximate approximation of 
-the original model~\cite{lundberg2017unified}.
-Examples of interpretive approximation methods using
-the original model: 
-LIME~\cite{ribeiro2016should} 
-(this is an example of a model-independent method 
-used to explain predictions using local models) and 
-DeepLIFT~\cite{shrikumar2017learning} 
-(used to explain local models Example).
-A model-specific method for interpreting deep learning models 
-in which the contribution of all neurons in the network is 
-propagated back to the input properties.
-SHAP - SHapley Additive exPlanation ~\cite{lundberg2017unified} uses 
-Shapley value in game theory to ensure feature consistency combined
-with previous methods and 
-interprets predictions by calculating the importance of features.
+\subsection{}
+% Explaining anomaly detection is the task of making
+% the anomaly detection process more transparent to the users,
+% i.e. why are these samples are recorded as anomalies?
+% % The Explaining anomaly detection task refers to
+% % making users fully understand the anomaly behavior.
+% % However,
+% The  goal of explanation is not only to
+% convince the users about the proposed anomoaly detection method,
+% but also helping the users to understand behavior about
+% the anomaliers.
+% This process will help the users to make decision such as
+% adjusting some feature of sample according to propsed method to
+% make the anomalier to normal.
 
-Most of the existing works focus on mining anomalying features to
-produce the subspaces where
-the anomaliers exhibiting most abnormality.
-Dang et al.~\cite{dang2013local} introduced LODI to
-seek an optimal subspace where
-the distance between an anomaliers and
-inliers can be maximized.
-Micenkova et al.~\cite{micenkova2013explaining}
-defined separability through the classification error of outliers and
-inliers,
-and leveraged it to
-quantify the explanation within every subspace.
-Then,
-they compared the measured explanations and
-selected the most explanatory subspace as the explanation of the outliers.
-LOGP is proposed ~\cite{dang2014discriminative}  to
-conduct a graph projection on outliers,
-which would further sort out the abnormal subspaces as the explanation.
-Duan et al. ~\cite{duan2015mining}
-demonstrated OAMiner,
-which focused on efficient mining of the discriminative subspaces.
-Macha et al.~\cite{macha2018explaining}
-demonstrated a pattern discover method providing explanations represented as hyper-ellipsoids.
-They conducted a clustering operation based on the density and
-purity of the involved instances before searching for the explanations.
-Then,
-several other literatures further derived rules to
-illustrate the deviation between anomaliers and
-inliers.
-Muller et al.~\cite{muller2012outrules}
-introduced OutRules to
-find normal and abnormal features and
-produce rules indicating the deviating behavior of anomaliers.
-He et al.~\cite{he2010co}
-demonstrated a method co-selecting the features and
-relevant anomaliers to
-describe the differences with inliers.
+% Over the last decade,
+% several methods have been developed to explain the models.
+% One method consists of using an approximate approximation of 
+% the original model~\cite{lundberg2017unified}.
+% Examples of interpretive approximation methods using
+% the original model: 
+% LIME~\cite{ribeiro2016should} 
+% (this is an example of a model-independent method 
+% used to explain predictions using local models) and 
+% DeepLIFT~\cite{shrikumar2017learning} 
+% (used to explain local models Example).
+% A model-specific method for interpreting deep learning models 
+% in which the contribution of all neurons in the network is 
+% propagated back to the input properties.
+% SHAP - SHapley Additive exPlanation ~\cite{lundberg2017unified} uses 
+% Shapley value in game theory to ensure feature consistency combined
+% with previous methods and 
+% interprets predictions by calculating the importance of features.
+
+% Most of the existing works focus on mining anomalying features to
+% produce the subspaces where
+% the anomaliers exhibiting most abnormality.
+% Dang et al.~\cite{dang2013local} introduced LODI to
+% seek an optimal subspace where
+% the distance between an anomaliers and
+% inliers can be maximized.
+% Micenkova et al.~\cite{micenkova2013explaining}
+% defined separability through the classification error of outliers and
+% inliers,
+% and leveraged it to
+% quantify the explanation within every subspace.
+% Then,
+% they compared the measured explanations and
+% selected the most explanatory subspace as the explanation of the outliers.
+% LOGP is proposed ~\cite{dang2014discriminative}  to
+% conduct a graph projection on outliers,
+% which would further sort out the abnormal subspaces as the explanation.
+% Duan et al. ~\cite{duan2015mining}
+% demonstrated OAMiner,
+% which focused on efficient mining of the discriminative subspaces.
+% Macha et al.~\cite{macha2018explaining}
+% demonstrated a pattern discover method providing explanations represented as hyper-ellipsoids.
+% They conducted a clustering operation based on the density and
+% purity of the involved instances before searching for the explanations.
+% Then,
+% several other literatures further derived rules to
+% illustrate the deviation between anomaliers and
+% inliers.
+% Muller et al.~\cite{muller2012outrules}
+% introduced OutRules to
+% find normal and abnormal features and
+% produce rules indicating the deviating behavior of anomaliers.
+% He et al.~\cite{he2010co}
+% demonstrated a method co-selecting the features and
+% relevant anomaliers to
+% describe the differences with inliers.
 
 \section{Evaluation of Anomaly Detection}~\label{sec:evaluate}
 Evaluation metrics are critical to building a 
