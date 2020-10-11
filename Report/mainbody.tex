@@ -176,7 +176,7 @@ The depth-based approach takes into account
 that each object is a point with
 a specified depth in n-dimensional space,
 and that a data object may be anomalier with a lower depth.
-Although some dimension reduction techniques such as
+Although some dimension reduction methods such as
 Primary Component Analysis (PCA)~\cite{deng2013modified},
 and Independent Component Analysis (ICA)
 are commonly used in this category,
@@ -279,6 +279,14 @@ they take advantage of both statistical approach ARIMA
 and deep-learning-based approach
 CNN to propose an novel network:
 it shows great improvement on Yahoo Webscope benchmark.
+Isolation Forest~\cite{liu2008isolation} 
+builds an ensemble of “Isolation Trees” (iTrees) for 
+the data set, 
+and anomalies are the points that 
+have shorter average path lengths on the iTrees.
+It has a low linear time complexity and 
+a small memory requirement
+and is able to deal with high dimensional data with irrelevant attributes~\cite{chandola2009anomaly}.
 %However,
 %we found that all the approaches mentioned above
 %have no considerations for explanation of anomaly detection,
@@ -293,12 +301,12 @@ it shows great improvement on Yahoo Webscope benchmark.
 
 In the age of big data,
 the design of anomaly detection methods have become increasingly complex.
-When the potential probability distribution is not 
+When the potential probability distribution is not
 known and the size of the data set is huge,
 the computational requirements increase.
 The Volume feature of big data emphasizes storage,
 memory,
-and computing power of the system to 
+and computing power of the system to
 cope with ever-increasing data size~\cite{gadepally2014big}.
 When the data size is large,
 the traditional anomaly detection methods may become invalid,
@@ -307,19 +315,19 @@ To overcome this issue,
 several parallel and distributed computing methods are proposed.
 
 Managing computational power and disk input/output (I/O) communication can
-result in improving the efficiency of the technique.
-Shin et al.~\cite{shin2017d} proposed a technique
+result in improving the efficiency of the method.
+Shin et al.~\cite{shin2017d} proposed a method
 called D-cube,
-which is a disk-based detection technique to find fraudulent lockstep
-behaviour in large scale multi-aspect data and 
+which is a disk-based detection method to find fraudulent lockstep
+behaviour in large scale multi-aspect data and
 runs in a distributed manner across multiple machines.
-They compared D-cube technique across state-of-the-art methods and
+They compared D-cube method across state-of-the-art methods and
 proved that D-cube is memory efficient,
 they have also proved it accurate by successfully
-spotting network attacks from TCP dumps and 
+spotting network attacks from TCP dumps and
 synchronised behaviour in rating data
 with highest accuracy.
-Hung and Cheung~\cite{hung2002parallel} introduced an 
+Hung and Cheung~\cite{hung2002parallel} introduced an
 efficient and parallel version
 of the nested loop (NL) algorithm,
 based on the NL algorithm proposed by Knox
@@ -337,22 +345,22 @@ The former segregates input data into
 separate subsets and prunes partitions that do not contain anomalies,
 resulting in considerable
 savings in computation.
-Angiulli and Fassetti~\cite{angiulli2007very} presented a 
-distance-based anomaly detection approach called “DOLPHIN” 
+Angiulli and Fassetti~\cite{angiulli2007very} presented a
+distance-based anomaly detection approach called “DOLPHIN”
 (for Detecting OutLiers PusHing data into an INdex)
 that works on disk-resident data sets in huge datasets.
 
 To solve the sequential exception problem in large databases,
-Arning et al.~\cite{arning1996linear} proposed a linear algorithm 
+Arning et al.~\cite{arning1996linear} proposed a linear algorithm
 using a dissimilarity function to capture the
 similarity rate of a data point.
 Erfani et al.~\cite{erfani2016high} introduced
-an unsupervised technique for high-dimensional large-scale 
-unlabeled data sets to detect anomalies that 
+an unsupervised method for high-dimensional large-scale
+unlabeled data sets to detect anomalies that
 are a combination of a deep belief network (DBN) and one-class
 support vector machines (SVM).
 One-class SVMs (1SVMs) are used for detecting outliers
-through unsupervised learning and aim to 
+through unsupervised learning and aim to
 model the underlying distribution of data while
 not considering irrelevant attributes or
 outliers in the training records.
@@ -377,7 +385,7 @@ incoming data;
 second,
 extracted features are calculated from the streaming data;
 third,
-all features representing diverse sources are 
+all features representing diverse sources are
 combined and called a parameterizations
 step;
 and,
@@ -390,12 +398,12 @@ an exponentially weighted moving average method and uses a PCA model.
 
 \subsection{Challenges in the Velocity of big data}
 
-Velocity refers to the challenges associated with 
+Velocity refers to the challenges associated with
 the continuous generation of data at
 high speed.
-A data stream is an infinite set of data instances in which 
+A data stream is an infinite set of data instances in which
 each instance is a
-set of values with an explicit or 
+set of values with an explicit or
 implicit time stamp~\cite{sadik2014research}.
 Data streams are unbounded
 sequences and the entry rate is continuously high,
@@ -413,12 +421,12 @@ such as whether the data are from
 a single source or multiple sources.
 Multiple data streams are made up of a set of data
 streams,
-and every data stream comprises an infinite 
+and every data stream comprises an infinite
 sequence of data instances accompanied
 by an explicit or implicit time stamp history.
 In a single data stream,
 anomaly
-detection compares the history of data instances to 
+detection compares the history of data instances to
 determine whether an instance is an
 outlier or anomaly.
 By contrast,
@@ -428,7 +436,7 @@ as anomalies by comparing them to
 the history of data instances from the same stream
 or other streams.
 
-Most anomaly detection strategies assume that 
+Most anomaly detection strategies assume that
 there is a finite volume of data generated
 by an unknown,
 stationary probability distribution,
@@ -436,19 +444,19 @@ which can be stored and
 analyzed in various steps using a batch-mode
 algorithm~\cite{silva2013data}.
 Anomaly detection on
-streaming data is a highly complex process because 
+streaming data is a highly complex process because
 the volume of data is unbounded
 and cannot be stored indefinitely~\cite{sadik2014research}.
 Data streams are produced at a high rate of
 generation,
 which makes the task of detecting anomalies and extracting useful insights
 challenging.
-This is a main disadvantage that arises in several application areas [37].
+This is a main disadvantage that arises in several application areas~\cite{salehi2016fast}.
 Silva et al.~\cite{silva2013data} highlighted
 the following restrictions for the successful development
 of algorithms in data streams: (1) the data instances arrive continuously;
 (2)
-there is no control over the order of processing or 
+there is no control over the order of processing or
 handling of data instances;
 (3) the
 size of a data stream can be unbounded;
@@ -458,25 +466,25 @@ hence,
 its probability
 distribution may evolve over the period.
 
-A hypothesis behind all data stream models is that 
+A hypothesis behind all data stream models is that
 the most recent data instances
 are more than historical data.
 The simplest model uses sliding windows of fixed size
 and works on the basis of first in,
-first out~\cite{silva2013data}.
+first out~\cite{gama2012survey}.
 A sequence-based sliding window
 is one in which the size of the window is defined
 as the number of observations in
 regard to fixed size and specific time~\cite{pettis1979intrinsic}.
 There is another type of sliding window
-called a time stamp window in which 
+called a time stamp window in which
 the size of the window is representative of the
-duration of the data~\cite{silva2013data}.
+duration of the data~\cite{gama2012survey}.
 
-Angiulli and Fasseti~\cite{angiulli2007detecting} 
-introduced techniques for recognizing distance-based
-outliers in data streams using a sliding window model in which 
-anomaly queries are executed for the purpose of 
+Angiulli and Fasseti~\cite{angiulli2007detecting}
+introduced methods for recognizing distance-based
+outliers in data streams using a sliding window model in which
+anomaly queries are executed for the purpose of
 identifying anomalies in the current window.
 Their algorithms
 execute anomaly queries and return an approximate answer based on accurate
@@ -489,8 +497,8 @@ windowed data streams.
 A sliding window is used to continuously inspect the
 object until it expires.
 Later,
-Angiulli and Fasseti~\cite{angiulli2009detecting} presented 
-an additional algorithm for identifying distance-based anomalies 
+Angiulli and Fasseti~\cite{angiulli2009detecting} presented
+an additional algorithm for identifying distance-based anomalies
 in data streams using the sliding window
 model; although based on their previous approximate algorithm,
 this algorithm
@@ -498,21 +506,21 @@ emphasized fixed memory requirements.
 
 An algorithm based on the sliding window model for
 mining constrained frequent
-item sets on uncertain data streams was introduced by 
+item sets on uncertain data streams was introduced by
 Yu et al.~\cite{yu2016uncertain}.
 Known as CUSFgrowth
 (constrained uncertain data stream frequent item sets growth),
 the algorithm
-determines the order of items in transactions and 
+determines the order of items in transactions and
 analyzes the properties of constraints.
-According to the order of items determined by 
+According to the order of items determined by
 the properties of constraints a CUSF-tree
 is created; later,
 after the frequent item sets are satisfied,
 the constraints are mined from
 the CUSF-tree.
 
-Kontaki et al.~\cite{kontaki2011continuous} 
+Kontaki et al.~\cite{kontaki2011continuous}
 also studied the problem of continuous anomaly detection in data
 streams using sliding windows.
 They proposed four algorithms that sought effective
@@ -521,7 +529,7 @@ Apart from assuming that the
 data are in metric space,
 their model did not make any assumptions about the behavior
 of input data.
-Their techniques have considerable flexibility with regard to parameter
+Their methods have considerable flexibility with regard to parameter
 values,
 enabling the execution of multiple distance-based outlier detection tasks
 with different values,
@@ -532,22 +540,30 @@ consumption.
 Their methods incorporate an event-based framework that bypasses
 unneeded computations benefiting from the expiration time of objects.
 
-A continuous outlier detection algorithm (CODA) is 
-an event-based technique that
-estimates the expiration time of objects to 
-circumvent undesirable computations.
-This technique quickly determines the nature of elements 
-by probabilistic pruning,
-thereby improving efficiency and 
-consuming significantly less storage.
-Since different users may
-have different views of outliers,
-an advanced CODA that can handle numerous values by
-enabling the concurrent execution of various 
-monitoring strategies has also been proposed.
-Another algorithm to decrease 
-the quantity of distance computations—microcluster
-CODA—was inspired by the work of Zhang et al~\cite{tian1996efficient}.
+In addition,
+several methods based on 
+iForest to resolve the problem of detecting anomalies in streaming data.
+iForestASD~\cite{ding2013anomaly} using the frame of 
+sliding windows and 
+taking into account the concept drift phenomenon,
+an based on iForest algorithm to adapte streaming data anomaly detection.
+
+% A continuous outlier detection algorithm (CODA) is
+% an event-based method that
+% estimates the expiration time of objects to
+% circumvent undesirable computations.
+% This method quickly determines the nature of elements
+% by probabilistic pruning,
+% thereby improving efficiency and
+% consuming significantly less storage.
+% Since different users may
+% have different views of outliers,
+% an advanced CODA that can handle numerous values by
+% enabling the concurrent execution of various
+% monitoring strategies has also been proposed.
+% Another algorithm to decrease
+% the quantity of distance computations—microcluster
+% CODA—was inspired by the work of Zhang et al~\cite{tian1996efficient}.
 % Explaining anomaly detection is the task of making
 % the anomaly detection process more transparent to the users,
 % i.e. why are these samples are recorded as anomalies?
@@ -850,4 +866,3 @@ we recommend reader to read more detail in the references of this chapter.
 
 
 % % The authors would like to thank \ldots
-
