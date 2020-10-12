@@ -44,7 +44,7 @@ Discovering abnormal patterns
 deviating from the
 datasets is refered as anomaly detection or outlier detection
 is being
-It can be used to detect anomalies or
+It can be used to detect anomaliers or
 events such as
 intrusion detection~\cite{garcia2009anomaly},
 fault detection~\cite{hwang2009survey},
@@ -78,7 +78,7 @@ not being capable of
 detecting new anomaly behavior,
 especially is not suitable in the age of big data.
 The data-based anomaly detection model works by
-identifying anomalies by creating a model of
+identifying anomaliers by creating a model of
 the normal patterns in the data,
 and then compute an outlier score of
 a given data point on the basis of
@@ -124,7 +124,7 @@ show how to reduce those challenges.
 %     % the value of dataset is usually infinity.
 %     \item Explaining anomaly detection.
 %     To make  user convince and help them make decision,
-%     the proposed method could not only identify anomalies but also
+%     the proposed method could not only identify anomaliers but also
 %     why.
 % \end{enumerate}
 
@@ -132,7 +132,7 @@ The rest of the chapter is organised as follows.
 We first introduce the existing methods of classic anomaly detection,
 in the Section~\ref{sec-method},
 Then,
-we introdeuce the explaining anomaly detect method
+we introduce the explaining anomaly detect method
 in the Section~\ref{sec-explain_anomaly}.
 In the Section~\ref{sec:evaluate},
 we introduce the popular evaluation method in anomaly detection.
@@ -198,7 +198,7 @@ build the anomaly detector~\cite{ramaswamy2000efficient,kuang2008anomaly}.
 The K-neighbor distance of each object is calculated and
 sorted from small to big,
 the objects which have largest
-distance are considered as anomalies.
+distance are considered as anomaliers.
 
 The distance based anomaly detection
 is easier to realize,
@@ -223,19 +223,18 @@ Thus the practical application of distance based methods is limited.
 
 %The statistical based and distance based methods have a common problem,
 %that is,
-%the overall distance criterion is used as the basis for the detection of anomalies.
-Anomalies are usually detected from an individual's point of view,
+%the overall distance criterion is used as the basis for the detection of anomaliers.
+anomaliers are usually detected from an individual's point of view,
 i.e.
-the anomalies are far from their neighboring clusters.
+the anomaliers are far from their neighboring clusters.
 Therefore,
 it is not appropriate to use the overall distance as statistical based and distance based methods do.
-The density-based anomaly detection algorithms are proposed
-in order to solve this problem.
+The density-based anomaly detection algorithms are proposed to solve this problem.
 The Local Outlier Factor (LOF)~\cite{breunig2000lof}
-is proposed to detect anomalies by comparing the local density of an object to the local density of its neighbors.
+is proposed to detect anomaliers by comparing the local density of an object to the local density of its neighbors.
 If the density of the data object is
 much lower than that of its neighbors,
-this data object is considered abnormal.
+this data object is considered as anomalier.
 Local parsimony factor (LCF) is proposed to
 reduce the complexity of the
 computation by considering the maximum distance between
@@ -248,7 +247,7 @@ and the efficiency of the calculation is greater than LOF.
 The density-based idea is closer to Hawkins' definition of
 exception than the distance-based idea~\cite{hawkins1980identification}.
 Therefore,
-it can detect local anomalies,
+it can detect local anomaliers,
 and have high detection accuracy.
 However,
 the time complexity is still very high,
@@ -282,7 +281,7 @@ it shows great improvement on Yahoo Webscope benchmark.
 Isolation Forest~\cite{liu2008isolation} 
 builds an ensemble of “Isolation Trees” (iTrees) for 
 the data set, 
-and anomalies are the points that 
+and anomaliers are the points that 
 have shorter average path lengths on the iTrees.
 It has a low linear time complexity and 
 a small memory requirement
@@ -315,39 +314,29 @@ To overcome this issue,
 several parallel and distributed computing methods are proposed.
 
 Managing computational power and disk input/output (I/O) communication can
-result in improving the efficiency of the method.
-Shin et al.~\cite{shin2017d} proposed a method
-called D-cube,
-which is a disk-based detection method to find fraudulent lockstep
-behaviour in large scale multi-aspect data and
+improve the efficiency of the method.
+D-cube~\cite{shin2017d} is a disk-based detection method to 
+find fraudulent lockstep behaviour in large scale data and
 runs in a distributed manner across multiple machines.
-They compared D-cube method across state-of-the-art methods and
-proved that D-cube is memory efficient,
-they have also proved it accurate by successfully
-spotting network attacks from TCP dumps and
+It is proved that could successfully
+detect network attacks and
 synchronised behaviour in rating data
 with highest accuracy.
+Nested loop (NL)\cite{knox1998algorithms} is
+a straightforward method to detect anomaliers in a database.
 Hung and Cheung~\cite{hung2002parallel} introduced an
 efficient and parallel version
-of the nested loop (NL) algorithm,
-based on the NL algorithm proposed by Knox
-and Ng~\cite{knox1998algorithms},
-that reduces both computation and disk I/O costs.
-The NL algorithm is
-a straightforward method to mine outliers in a database.
-Ramaswamy et al.~\cite{ramaswamy2000efficient} proposed
-a construction model for distance-based anomalies,
-which is built on the distance
-of a point from its neighbor,
-and also developed an effective partition-based algorithm
-to pull out abnormal patterns in huge data sets.
-The former segregates input data into
-separate subsets and prunes partitions that do not contain anomalies,
+of the NL algorithm that reduces both computation and disk I/O costs.
+
+Ramaswamy et al.~\cite{ramaswamy2000efficient} proposed a 
+distance based  anomaly detection method to detect anomalier in huge data sets.
+It segregates input data into
+separate subsets and prunes partitions that 
+do not contain anomaliers,
 resulting in considerable
 savings in computation.
-Angiulli and Fassetti~\cite{angiulli2007very} presented a
-distance-based anomaly detection approach called “DOLPHIN”
-(for Detecting OutLiers PusHing data into an INdex)
+DOLPHIN ~\cite{angiulli2007very} is also a
+distance based anomaly detection method
 that works on disk-resident data sets in huge datasets.
 
 To solve the sequential exception problem in large databases,
@@ -356,14 +345,14 @@ using a dissimilarity function to capture the
 similarity rate of a data point.
 Erfani et al.~\cite{erfani2016high} introduced
 an unsupervised method for high-dimensional large-scale
-unlabeled data sets to detect anomalies that
+unlabeled data sets to detect anomaliers that
 are a combination of a deep belief network (DBN) and one-class
 support vector machines (SVM).
-One-class SVMs (1SVMs) are used for detecting outliers
+One-class SVMs (1SVMs) are used for detecting anomaliers
 through unsupervised learning and aim to
 model the underlying distribution of data while
 not considering irrelevant attributes or
-outliers in the training records.
+anomaliers in the training records.
 Features derived from training samples are taken as input to train 1SVMs.
 Conversely,
 a DBN is
@@ -371,29 +360,29 @@ a multiclass semi-supervised approach and dimensionality reduction tool.
 It uses multilayer
 generative models (non-linear manifold) that learn one layer of features at a time
 from unlabeled data.
-Camacho et al.~\cite{camacho2014tackling} presented an interesting outline for anomaly
-detection,
-identifying and interpreting unusual events in a forensics system network by addressing the 4Vs of big data—volume,
-variety,
-veracity,
-and velocity.
-Their framework
-is based on input from several heterogeneous data sources.
-First,
-the system pre-processes
-incoming data;
-second,
-extracted features are calculated from the streaming data;
-third,
-all features representing diverse sources are
-combined and called a parameterizations
-step;
-and,
-fourth,
-these new features are utilized in updating a set of intermediate
-data structures representing the present stage of the network.
-The updated strategy follows
-an exponentially weighted moving average method and uses a PCA model.
+% Camacho et al.~\cite{camacho2014tackling} presented an interesting outline for anomaly
+% detection,
+% identifying and interpreting unusual events in a forensics system network by addressing the 4Vs of big data—volume,
+% variety,
+% veracity,
+% and velocity.
+% Their framework
+% is based on input from several heterogeneous data sources.
+% First,
+% the system pre-processes
+% incoming data;
+% second,
+% extracted features are calculated from the streaming data;
+% third,
+% all features representing diverse sources are
+% combined and called a parameterizations
+% step;
+% and,
+% fourth,
+% these new features are utilized in updating a set of intermediate
+% data structures representing the present stage of the network.
+% The updated strategy follows
+% an exponentially weighted moving average method and uses a PCA model.
 
 
 \subsection{Challenges in the Velocity of big data}
@@ -432,7 +421,7 @@ outlier or anomaly.
 By contrast,
 in multiple data streams,
 data instances are recognized
-as anomalies by comparing them to
+as anomaliers by comparing them to
 the history of data instances from the same stream
 or other streams.
 
@@ -449,7 +438,7 @@ the volume of data is unbounded
 and cannot be stored indefinitely~\cite{sadik2014research}.
 Data streams are produced at a high rate of
 generation,
-which makes the task of detecting anomalies and extracting useful insights
+which makes the task of detecting anomaliers and extracting useful insights
 challenging.
 This is a main disadvantage that arises in several application areas~\cite{salehi2016fast}.
 Silva et al.~\cite{silva2013data} highlighted
@@ -483,22 +472,22 @@ duration of the data~\cite{gama2012survey}.
 
 Angiulli and Fasseti~\cite{angiulli2007detecting}
 introduced methods for recognizing distance-based
-outliers in data streams using a sliding window model in which
+anomaliers in data streams using a sliding window model in which
 anomaly queries are executed for the purpose of
-identifying anomalies in the current window.
+identifying anomaliers in the current window.
 Their algorithms
 execute anomaly queries and return an approximate answer based on accurate
 estimations with a statistical guarantee.
 These algorithms are based on a method
 known as stream outlier miner,
 or STORM,
-which is used to find outliers on distancebased
+which is used to find anomaliers on distance based
 windowed data streams.
 A sliding window is used to continuously inspect the
 object until it expires.
 Later,
 Angiulli and Fasseti~\cite{angiulli2009detecting} presented
-an additional algorithm for identifying distance-based anomalies
+an additional algorithm for identifying distance-based anomaliers
 in data streams using the sliding window
 model; although based on their previous approximate algorithm,
 this algorithm
@@ -531,7 +520,7 @@ their model did not make any assumptions about the behavior
 of input data.
 Their methods have considerable flexibility with regard to parameter
 values,
-enabling the execution of multiple distance-based outlier detection tasks
+enabling the execution of multiple distance-based anomaly detection tasks
 with different values,
 and they reduced the number of distance computations using
 micro-clusters.
@@ -542,7 +531,7 @@ unneeded computations benefiting from the expiration time of objects.
 
 In addition,
 several methods based on 
-iForest to resolve the problem of detecting anomalies in streaming data.
+iForest to resolve the problem of detecting anomaliers in streaming data.
 iForestASD~\cite{ding2013anomaly} using the frame of 
 sliding windows and 
 taking into account the concept drift phenomenon,
@@ -557,7 +546,7 @@ an based on iForest algorithm to adapte streaming data anomaly detection.
 % thereby improving efficiency and
 % consuming significantly less storage.
 % Since different users may
-% have different views of outliers,
+% have different views of anomaliers,
 % an advanced CODA that can handle numerous values by
 % enabling the concurrent execution of various
 % monitoring strategies has also been proposed.
@@ -566,7 +555,7 @@ an based on iForest algorithm to adapte streaming data anomaly detection.
 % CODA—was inspired by the work of Zhang et al~\cite{tian1996efficient}.
 % Explaining anomaly detection is the task of making
 % the anomaly detection process more transparent to the users,
-% i.e. why are these samples are recorded as anomalies?
+% i.e. why are these samples are recorded as anomaliers?
 % % The Explaining anomaly detection task refers to
 % % making users fully understand the anomaly behavior.
 % % However,
@@ -605,15 +594,15 @@ an based on iForest algorithm to adapte streaming data anomaly detection.
 % the distance between an anomaliers and
 % inliers can be maximized.
 % Micenkova et al.~\cite{micenkova2013explaining}
-% defined separability through the classification error of outliers and
+% defined separability through the classification error of anomaliers and
 % inliers,
 % and leveraged it to
 % quantify the explanation within every subspace.
 % Then,
 % they compared the measured explanations and
-% selected the most explanatory subspace as the explanation of the outliers.
+% selected the most explanatory subspace as the explanation of the anomaliers.
 % LOGP is proposed ~\cite{dang2014discriminative}  to
-% conduct a graph projection on outliers,
+% conduct a graph projection on anomaliers,
 % which would further sort out the abnormal subspaces as the explanation.
 % Duan et al. ~\cite{duan2015mining}
 % demonstrated OAMiner,
@@ -759,7 +748,7 @@ and similarity analysis could be used.
 
 For unsupervised learning,
 a common evaluation strategy is to rank the
-results according to the score of outliers,
+results according to the score of anomaliers,
 and then iteratively set the threshold from
 the first to the last.
 This will form n ancestor values
@@ -787,7 +776,7 @@ or distance measurement.
 In the evaluation of anomaly detection algorithm,
 it can be assumed that a large number of normal
 data are closely adjacent (can form multiple clusters),
-and outliers are often quite different from these normal points.
+and anomaliers are often quite different from these normal points.
 
 \section{Anomaly detection software packages}~\label{sec:tools}
 Many companies have build
@@ -807,8 +796,8 @@ unsupervised / rule-based time series anomaly detection.
 \subsection{PyOdds}
 
 PyODDS (\href{http://pyodds.com/}{http://pyodds.com/}) is an end-to end Python system for
-outlier detection.
-It provides several anomalier detection algorithms and
+anomaly detection.
+It provides several anomaly detection algorithms and
 support both static and time-series data type.
 
 \subsection{PyOD}
@@ -821,7 +810,7 @@ including new deep learning models and ensembles methods.
 
 Anomaly Detection Toolbox
 (\href{http://dsmi-lab-ntust.github.io/AnomalyDetectionToolbox/}{http://dsmi-lab-ntust.github.io/AnomalyDetectionToolbox/})
-collectes a lot of popular outlier detection algorithms in Matlab.
+collectes a lot of popular anomaly detection algorithms in Matlab.
 
 \subsection{DeepADoTS}
 
