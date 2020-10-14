@@ -265,28 +265,29 @@ the ``whole truth''.
 So it is best to integrate different
 third-party observational results to reach consensus.
 The main idea of this method (called ``ensemble'')
-is that if these judgments do not contain all the same errors.
+is that if these judgments do not contain 
+all the same errors.
 It is useful to combine individual judgments or
 the results of marginalized observations~\cite{zhou2012ensemble}.
 One would think that this is a majority vote of
 the jury:
-one or another judgment on the statement may be wrong.
+one or another judgment on the statement may be wrong,
 but the majority judgment is still correct as long as
 the judgment is generally reliable.
-FuseAD~\cite{munir2019fusead} can be treated as
-at typical ensemble method,
-they take advantage of both statistical approach ARIMA
-and deep-learning-based approach
-CNN to propose an novel network:
-it shows great improvement on Yahoo Webscope benchmark.
 Isolation Forest~\cite{liu2008isolation} 
-builds an ensemble of “Isolation Trees” (iTrees) for 
+can be treated as typical ensemble method,
+it builds an ensemble of “Isolation Trees” (iTrees) for 
 the data set, 
 and anomaliers are the points that 
 have shorter average path lengths on the iTrees.
 It has a low linear time complexity and 
 a small memory requirement
 and is able to deal with high dimensional data with irrelevant attributes~\cite{chandola2009anomaly}.
+FuseAD~\cite{munir2019fusead} 
+takes advantage of both statistical approach ARIMA
+and deep-learning-based approach
+CNN to propose an novel network:
+it shows great improvement on Yahoo Webscope benchmark.
 %However,
 %we found that all the approaches mentioned above
 %have no considerations for explanation of anomaly detection,
@@ -406,25 +407,26 @@ change over time.
 % evolving,
 % and potentially
 % infinite.
-Most traditional anomaly detection methods assume that
-there is a finite volume of data generated
-by an unknown but stationary probability distribution,
-which can be stored and
-analyzed~\cite{silva2013data}.
+Most traditional anomaly detection methods assume 
+the data set is generated
+by an unknown but stationary probability distribution 
+finite,
+the volume of data is finite and 
+the entire dataset is stored for analysis~\cite{silva2013data}.
 However, 
-aomaly detection on
-streaming data is a highly complex process because
-the volume of data is unbounded,
-is produced at a high rate of
-generation,
-and cannot be stored indefinitely~\cite{sadik2014research}.
+the anomaly detection on data stream is 
+a highly challenge tasks because of
+the unbounded volume of data,
+the high rate of data generation,
+and data be stored will run out of memory space~\cite{sadik2014research}.
+
 % Data streams are ,
 % which makes the task of detecting anomaliers and extracting useful insights
 % challenging.
 % This is a main disadvantage that arises in several application areas~\cite{salehi2016fast}.
-Silva et al.~\cite{silva2013data} highlighted
-the following restrictions for the successful development
-of algorithms in data streams: 
+Silva et al.~\cite{silva2013data} summarized
+the following challenges should be considered for developing
+a successful anomaly detection methods in data streams: 
 \begin{inparaenum}
   \item the data instances arrive continuously;
   \item there is no control over the order of processing or
@@ -460,20 +462,20 @@ of algorithms in data streams:
 % the history of data instances from the same stream
 % or other streams.
 
-A hypothesis behind all data stream models is that
-the most recent data instances
-are more than historical data.
-The simplest model uses sliding windows of fixed size
-and works on the basis of first in,
-first out~\cite{gama2012survey}.
-A sequence-based sliding window
-is one in which the size of the window is defined
-as the number of observations in
-regard to fixed size and specific time~\cite{pettis1979intrinsic}.
-There is another type of sliding window
-called a time stamp window in which
-the size of the window is representative of the
-duration of the data~\cite{gama2012survey}.
+% A hypothesis behind all data stream models is that
+% the most recent data instances
+% are more than historical data.
+% The simplest model uses sliding windows of fixed size
+% and works on the basis of first in,
+% first out~\cite{gama2012survey}.
+% A sequence-based sliding window
+% is one in which the size of the window is defined
+% as the number of observations in
+% regard to fixed size and specific time~\cite{pettis1979intrinsic}.
+% There is another type of sliding window
+% called a time stamp window in which
+% the size of the window is representative of the
+% duration of the data~\cite{gama2012survey}.
 
 Angiulli and Fasseti~\cite{angiulli2007detecting}
 introduced methods for recognizing distance-based
@@ -515,33 +517,39 @@ the constraints are mined from
 the CUSF-tree.
 
 Kontaki et al.~\cite{kontaki2011continuous}
-also studied the problem of continuous anomaly detection in data
-streams using sliding windows.
+also studied the problem of continuous anomaly detection in
+data streams using sliding windows.
 They proposed four algorithms that sought effective
 anomaly monitoring with lesser memory requirements.
 Apart from assuming that the
 data are in metric space,
-their model did not make any assumptions about the behavior
-of input data.
-Their methods have considerable flexibility with regard to parameter
-values,
-enabling the execution of multiple distance-based anomaly detection tasks
+their model did not make any assumptions about 
+the behavior of input data.
+Their methods have considerable flexibility with 
+regard to parameter values,
+enabling the execution of multiple distance-based 
+anomaly detection tasks
 with different values,
 and they reduced the number of distance computations using
 micro-clusters.
-Their primary concerns were to improve efficiency and reduce storage
+Their primary concerns were to improve efficiency and 
+reduce storage
 consumption.
 Their methods incorporate an event-based framework that bypasses
 unneeded computations benefiting from the expiration time of objects.
 
 In addition,
-several methods based on 
-iForest to resolve the problem of detecting anomaliers in streaming data.
-iForestASD~\cite{ding2013anomaly} using the frame of 
-sliding windows and 
-taking into account the concept drift phenomenon,
-an based on iForest algorithm to adapte streaming data anomaly detection.
-
+enseble-based methods are also proposed to 
+resolve the problem of detecting anomaliers 
+in streaming data.
+iForestASD~\cite{ding2013anomaly},
+uses sliding window to deal with streaming
+data.
+On the current complete window, 
+iForestASD uses the standard 
+iForest method to to adapte streaming 
+data anomaly detection.
+HS-Trees~\cite{tan2011fast} 
 % A continuous outlier detection algorithm (CODA) is
 % an event-based method that
 % estimates the expiration time of objects to
@@ -793,14 +801,10 @@ In this section,
 we review some of the popular software packages for
 practitioners to build their anomaly detection systems.
 
-\subsection{ADTK}
-
-Anomaly Detection Toolkit (ADTK) (\href{https://adtk.readthedocs.io}{https://adtk.readthedocs.io}) is a Python package for
-unsupervised / rule-based time series anomaly detection.
-
 \subsection{PyOdds}
 
-PyODDS (\href{http://pyodds.com/}{http://pyodds.com/}) is an end-to end Python system for
+PyODDS (\href{http://pyodds.com/}{http://pyodds.com/}) 
+is an end-to end Python system for
 anomaly detection.
 It provides several anomaly detection algorithms and
 support both static and time-series data type.
@@ -811,18 +815,49 @@ is a comprehensive and scalable Python toolkit for
 detecting anomalier in multivariable data.
 It includes more than 20 detection algorithms,
 including new deep learning models and ensembles methods.
-\subsection{Anomaly Detection Toolbox}
 
-Anomaly Detection Toolbox
-(\href{http://dsmi-lab-ntust.github.io/AnomalyDetectionToolbox/}{http://dsmi-lab-ntust.github.io/AnomalyDetectionToolbox/})
-collectes a lot of popular anomaly detection algorithms in Matlab.
+% \subsection{Anomaly Detection Toolbox}
+% Anomaly Detection Toolbox
+% (\href{http://dsmi-lab-ntust.github.io/AnomalyDetectionToolbox/}{http://dsmi-lab-ntust.github.io/AnomalyDetectionToolbox/})
+% collectes a lot of popular anomaly detection algorithms in Matlab.
 
-\subsection{DeepADoTS}
+\subsection{ADTK}
+Anomaly Detection Toolkit (ADTK) (\href{https://adtk.readthedocs.io}{https://adtk.readthedocs.io})
+is a Python package for unsupervised / rule-based time series anomaly detection.
 
-DeepADoTS (\href{https://github.com/KDD-OpenSource/DeepADoTS}{https://github.com/KDD-OpenSource/DeepADoTS})
-is a benchmarking pipeline for anomaly detection on
-time series data for
-multiple state-of-the-art deep learning methods.
+\subsection{Scikit-Multiflow}
+Scikit-Multiflow~\cite{montiel2018scikit}
+is the main open source machine learning framework
+for multi-output, 
+multi-label and data streaming. 
+Implemented in Python language, 
+it includes various algorithms and 
+methods for streams mining and in
+particular the popular HS-Trees algorithm.
+
+\subsection{Distributed Computing frameworks}
+Distributed computing is one of the most 
+important techniques to handle
+and process big data.
+MapReduce is one
+of the first distributed programming paradigms to 
+handle big data storing and processing.
+Henceforth, 
+many frameworks for distributed computing 
+such as Apache Hadoop
+(\href{https://hadoop.apache.org/}{https://hadoop.apache.org/}), 
+Apache Storm 
+(\href{https://storm.apache.org/}{https://storm.apache.org/}), 
+Apache Spark 
+(\href{https://spark.apache.org/}{https://spark.apache.org/}), 
+Apache Flink 
+(\href{https://flink.apache.org/}{https://flink.apache.org/})
+were developed addressing the increasing demands of big data. 
+Most of these frameworks
+have in-house machine learning (ML) libraries, 
+and Apache Spark has a powerful
+ML library than any of the other frameworks.
+
 
 % \subsection{RRCF}
 % RRCF~\cite{bartos_2019_rrcf} (\href{https://travis-ci.org/github/kLabUM/rrcf}{https://travis-ci.org/github/kLabUM/rrcf})
