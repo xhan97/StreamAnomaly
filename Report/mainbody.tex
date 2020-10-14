@@ -206,6 +206,7 @@ and is widely studied and used.
 But it has some disadvantages.
 The complexity of the algorithm is relatively high,
 such as the computation complexity of KNN is $O(m^2)$,
+where the $m$ is the number of data object.
 and it cannot consider the size of
 data sets and the scalability of data dimension.
 %Secondly,
@@ -390,70 +391,74 @@ from unlabeled data.
 Velocity refers to the challenges associated with
 the continuous generation of data at
 high speed.
-A data stream is an infinite set of data instances in which
+The data set would be 
+an infinite set of data instances in which
 each instance is a
 set of values with an explicit or
-implicit time stamp~\cite{sadik2014research}.
-Data streams are unbounded
+implicit time stamp 
+and it is refered as data stream~\cite{sadik2014research}.
+The data stream are unbounded
 sequences and the entry rate is continuously high,
 as the respective variations repeatedly
 change over time.
-Data streams reflect the important features of big data in that the
-aspects of both volume and velocity are temporally ordered,
-evolving,
-and potentially
-infinite.
-The data may comprise irrelevant attributes that
-raise problems for anomaly detection,
-and there are several other factors involved,
-such as whether the data are from
-a single source or multiple sources.
-Multiple data streams are made up of a set of data
-streams,
-and every data stream comprises an infinite
-sequence of data instances accompanied
-by an explicit or implicit time stamp history.
-In a single data stream,
-anomaly
-detection compares the history of data instances to
-determine whether an instance is an
-outlier or anomaly.
-By contrast,
-in multiple data streams,
-data instances are recognized
-as anomaliers by comparing them to
-the history of data instances from the same stream
-or other streams.
-
-Most anomaly detection strategies assume that
+% Data streams reflect the important features of big data in that the
+% aspects of both volume and velocity are temporally ordered,
+% evolving,
+% and potentially
+% infinite.
+Most traditional anomaly detection methods assume that
 there is a finite volume of data generated
-by an unknown,
-stationary probability distribution,
+by an unknown but stationary probability distribution,
 which can be stored and
-analyzed in various steps using a batch-mode
-algorithm~\cite{silva2013data}.
-Anomaly detection on
+analyzed~\cite{silva2013data}.
+However, 
+aomaly detection on
 streaming data is a highly complex process because
-the volume of data is unbounded
-and cannot be stored indefinitely~\cite{sadik2014research}.
-Data streams are produced at a high rate of
+the volume of data is unbounded,
+is produced at a high rate of
 generation,
-which makes the task of detecting anomaliers and extracting useful insights
-challenging.
-This is a main disadvantage that arises in several application areas~\cite{salehi2016fast}.
+and cannot be stored indefinitely~\cite{sadik2014research}.
+% Data streams are ,
+% which makes the task of detecting anomaliers and extracting useful insights
+% challenging.
+% This is a main disadvantage that arises in several application areas~\cite{salehi2016fast}.
 Silva et al.~\cite{silva2013data} highlighted
 the following restrictions for the successful development
-of algorithms in data streams: (1) the data instances arrive continuously;
-(2)
-there is no control over the order of processing or
-handling of data instances;
-(3) the
-size of a data stream can be unbounded;
-(4) data instances are deleted after processing;
-and (5) the data generation process can be nonstationary;
-hence,
-its probability
-distribution may evolve over the period.
+of algorithms in data streams: 
+\begin{inparaenum}
+  \item the data instances arrive continuously;
+  \item there is no control over the order of processing or
+  handling of data instances;
+  \item the
+  size of a data stream can be unbounded;
+  \item data instances are deleted after processing;
+  and
+  \item the data generation process can be nonstationary;
+  hence,
+  its probability
+  distribution may evolve over the period.
+\end{inparaenum}
+% The data may comprise irrelevant attributes that
+% raise problems for anomaly detection,
+% and there are several other factors involved,
+% such as whether the data are from
+% a single source or multiple sources.
+% Multiple data streams are made up of a set of data
+% streams,
+% and every data stream comprises an infinite
+% sequence of data instances accompanied
+% by an explicit or implicit time stamp history.
+% In a single data stream,
+% anomaly
+% detection compares the history of data instances to
+% determine whether an instance is an
+% outlier or anomaly.
+% By contrast,
+% in multiple data streams,
+% data instances are recognized
+% as anomaliers by comparing them to
+% the history of data instances from the same stream
+% or other streams.
 
 A hypothesis behind all data stream models is that
 the most recent data instances
