@@ -149,6 +149,13 @@ statistical,
 distance,
 clustering and Ensemble~\cite{cook2019anomaly}.
 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.80\textwidth]{figures/gif/secpictures/sec2}
+  \caption{Traditional Method of Anomaly Detection}\label{sec2}
+\end{figure}
+
 \subsection{Statistical Based Methods}
 
 The statistical based detection assumed that
@@ -265,7 +272,7 @@ the ``whole truth''.
 So it is best to integrate different
 third-party observational results to reach consensus.
 The main idea of this method (called ``ensemble'')
-is that if these judgments do not contain 
+is that if these judgments do not contain
 all the same errors.
 It is useful to combine individual judgments or
 the results of marginalized observations~\cite{zhou2012ensemble}.
@@ -274,16 +281,16 @@ the jury:
 one or another judgment on the statement may be wrong,
 but the majority judgment is still correct as long as
 the judgment is generally reliable.
-Isolation Forest~\cite{liu2008isolation} 
+Isolation Forest~\cite{liu2008isolation}
 can be treated as typical ensemble method,
-it builds an ensemble of “Isolation Trees” (iTrees) for 
-the data set, 
-and anomaliers are the points that 
+it builds an ensemble of “Isolation Trees” (iTrees) for
+the data set,
+and anomaliers are the points that
 have shorter average path lengths on the iTrees.
-It has a low linear time complexity and 
+It has a low linear time complexity and
 a small memory requirement
 and is able to deal with high dimensional data with irrelevant attributes~\cite{chandola2009anomaly}.
-FuseAD~\cite{munir2019fusead} 
+FuseAD~\cite{munir2019fusead}
 takes advantage of both statistical approach ARIMA
 and deep-learning-based approach
 CNN to propose an novel network:
@@ -317,7 +324,7 @@ several parallel and distributed computing methods are proposed.
 
 Managing computational power and disk input/output (I/O) communication can
 improve the efficiency of the method.
-D-cube~\cite{shin2017d} is a disk-based detection method to 
+D-cube~\cite{shin2017d} is a disk-based detection method to
 find fraudulent lockstep behaviour in large scale data and
 runs in a distributed manner across multiple machines.
 It is proved that could successfully
@@ -330,10 +337,10 @@ Hung and Cheung~\cite{hung2002parallel} introduced an
 efficient and parallel version
 of the NL algorithm that reduces both computation and disk I/O costs.
 
-Ramaswamy et al.~\cite{ramaswamy2000efficient} proposed a 
+Ramaswamy et al.~\cite{ramaswamy2000efficient} proposed a
 distance based  anomaly detection method to detect anomalier in huge data sets.
 It segregates input data into
-separate subsets and prunes partitions that 
+separate subsets and prunes partitions that
 do not contain anomaliers,
 resulting in considerable
 savings in computation.
@@ -392,11 +399,11 @@ from unlabeled data.
 Velocity refers to the challenges associated with
 the continuous generation of data at
 high speed.
-The data set would be 
+The data set would be
 an infinite set of data instances in which
 each instance is a
 set of values with an explicit or
-implicit time stamp 
+implicit time stamp
 and it is refered as data stream~\cite{sadik2014research}.
 The data stream are unbounded
 sequences and the entry rate is continuously high,
@@ -407,14 +414,14 @@ change over time.
 % evolving,
 % and potentially
 % infinite.
-Most traditional anomaly detection methods assume 
+Most traditional anomaly detection methods assume
 the data set is generated
-by an unknown but stationary probability distribution 
+by an unknown but stationary probability distribution
 finite,
-the volume of data is finite and 
+the volume of data is finite and
 the entire dataset is stored for analysis~\cite{silva2013data}.
-However, 
-the anomaly detection on data stream is 
+However,
+the anomaly detection on data stream is
 a highly challenge tasks because of
 the unbounded volume of data,
 the high rate of data generation,
@@ -426,7 +433,7 @@ and data be stored will run out of memory space~\cite{sadik2014research}.
 % This is a main disadvantage that arises in several application areas~\cite{salehi2016fast}.
 Silva et al.~\cite{silva2013data} summarized
 the following challenges should be considered for developing
-a successful anomaly detection methods in data streams: 
+a successful anomaly detection methods in data streams:
 \begin{inparaenum}
   \item the data instances arrive continuously;
   \item there is no control over the order of processing or
@@ -523,33 +530,33 @@ They proposed four algorithms that sought effective
 anomaly monitoring with lesser memory requirements.
 Apart from assuming that the
 data are in metric space,
-their model did not make any assumptions about 
+their model did not make any assumptions about
 the behavior of input data.
-Their methods have considerable flexibility with 
+Their methods have considerable flexibility with
 regard to parameter values,
-enabling the execution of multiple distance-based 
+enabling the execution of multiple distance-based
 anomaly detection tasks
 with different values,
 and they reduced the number of distance computations using
 micro-clusters.
-Their primary concerns were to improve efficiency and 
+Their primary concerns were to improve efficiency and
 reduce storage
 consumption.
 Their methods incorporate an event-based framework that bypasses
 unneeded computations benefiting from the expiration time of objects.
 
 In addition,
-enseble-based methods are also proposed to 
-resolve the problem of detecting anomaliers 
+enseble-based methods are also proposed to
+resolve the problem of detecting anomaliers
 in streaming data.
 iForestASD~\cite{ding2013anomaly},
 uses sliding window to deal with streaming
 data.
-On the current complete window, 
-iForestASD uses the standard 
-iForest method to to adapte streaming 
+On the current complete window,
+iForestASD uses the standard
+iForest method to to adapte streaming
 data anomaly detection.
-HS-Trees~\cite{tan2011fast} 
+HS-Trees~\cite{tan2011fast}
 % A continuous outlier detection algorithm (CODA) is
 % an event-based method that
 % estimates the expiration time of objects to
@@ -803,7 +810,7 @@ practitioners to build their anomaly detection systems.
 
 \subsection{PyOdds}
 
-PyODDS (\href{http://pyodds.com/}{http://pyodds.com/}) 
+PyODDS (\href{http://pyodds.com/}{http://pyodds.com/})
 is an end-to end Python system for
 anomaly detection.
 It provides several anomaly detection algorithms and
@@ -828,33 +835,33 @@ is a Python package for unsupervised / rule-based time series anomaly detection.
 \subsection{Scikit-Multiflow}
 Scikit-Multiflow~\cite{montiel2018scikit}
 is the main open source machine learning framework
-for multi-output, 
-multi-label and data streaming. 
-Implemented in Python language, 
-it includes various algorithms and 
+for multi-output,
+multi-label and data streaming.
+Implemented in Python language,
+it includes various algorithms and
 methods for streams mining and in
 particular the popular HS-Trees algorithm.
 
 \subsection{Distributed Computing frameworks}
-Distributed computing is one of the most 
+Distributed computing is one of the most
 important techniques to handle
 and process big data.
 MapReduce is one
-of the first distributed programming paradigms to 
+of the first distributed programming paradigms to
 handle big data storing and processing.
-Henceforth, 
-many frameworks for distributed computing 
+Henceforth,
+many frameworks for distributed computing
 such as Apache Hadoop
-(\href{https://hadoop.apache.org/}{https://hadoop.apache.org/}), 
-Apache Storm 
-(\href{https://storm.apache.org/}{https://storm.apache.org/}), 
-Apache Spark 
-(\href{https://spark.apache.org/}{https://spark.apache.org/}), 
-Apache Flink 
+(\href{https://hadoop.apache.org/}{https://hadoop.apache.org/}),
+Apache Storm
+(\href{https://storm.apache.org/}{https://storm.apache.org/}),
+Apache Spark
+(\href{https://spark.apache.org/}{https://spark.apache.org/}),
+Apache Flink
 (\href{https://flink.apache.org/}{https://flink.apache.org/})
-were developed addressing the increasing demands of big data. 
+were developed addressing the increasing demands of big data.
 Most of these frameworks
-have in-house machine learning (ML) libraries, 
+have in-house machine learning (ML) libraries,
 and Apache Spark has a powerful
 ML library than any of the other frameworks.
 
