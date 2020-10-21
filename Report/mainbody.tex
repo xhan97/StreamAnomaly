@@ -56,6 +56,9 @@ event detection in social networks~\cite{sakaki2010earthquake}.
 % such as defining new customer groups through proactive analysis.
 % Meanwhile,
 
+
+
+
 An anomalier defined by Hawkins~\cite{hawkins1980identification}
 as ``an observation which
 deviates so much from the other observations
@@ -192,11 +195,19 @@ high-dimensional and large data sets.
 
 \subsection{Distance Based Methods}
 
-The basic idea of distance based anomaly detection
-is to calculate the distance between data points in
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/distance.png}
+  \caption{Distance Based  Anomaly detection Methods}\label{fig:distance}
+\end{figure}
+
+The distance based anomaly detection
+assumes that
+anomaliers are far away from other points.
+It calculate the distance between data points in
 data space after setting a distance function.
 A data object is regarded as anomalier when
-the distance between  itself and others is large.
+the distance between itself and others is large.
 The firstly anomaly detection method
 based on distance is proposed in~\cite{knorr1997unified}.
 Then it is extended to using K-neighbor distance to
@@ -206,13 +217,12 @@ sorted from small to big,
 the objects which have largest
 distance are considered as anomaliers.
 
-The distance based anomaly detection
+The distance based anomaly detection method
 is easier to realize,
-and is widely studied and used.
-But it has some disadvantages.
-The complexity of the algorithm is relatively high,
-such as the computation complexity of KNN is $O(m^2)$,
-where the $m$ is the number of data object.
+and is widely studied.
+But the complexity of the algorithm is relatively high,
+such as the computation complexity of KNN is $O(n^2)$,
+where the $n$ is the number of data points.
 and it cannot consider the size of
 data sets and the scalability of data dimension.
 %Secondly,
@@ -227,11 +237,16 @@ data sets and the scalability of data dimension.
 Thus the practical application of distance based methods is limited.
 
 \subsection{Density Based Methods}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/cluster.png}
+  \caption{Density Based  Anomaly detection Methods}\label{fig:Density}
+\end{figure}
 
 %The statistical based and distance based methods have a common problem,
 %that is,
 %the overall distance criterion is used as the basis for the detection of anomaliers.
-anomaliers are usually detected from an individual's point of view,
+Anomaliers are usually detected from an individual's point of view,
 i.e.
 the anomaliers are far from their neighboring clusters.
 Therefore,
@@ -303,6 +318,18 @@ it shows great improvement on Yahoo Webscope benchmark.
 
 \section{Challenges of Anomaly detection in big data}
 \label{sec-challenge-big}
+The two features of big data that have the greatest effect
+on the problem of high dimensionality are “volume” and “velocity.”
+brings
+additional challenges when data are increasing and arriving at speed as unbounded data
+streams.
+However, these strategies become
+highly complex and ineffective in detecting anomalies due to the challenges associated
+with large data sets and data streams.
+each problem has their individual challenges.
+Here, we present challenges
+brought by anomaly detection in  big data.
+We have described each one of them in the following subsections.
 
 \subsection{Challenges in the Volume of big data}
 
@@ -395,10 +422,15 @@ from unlabeled data.
 
 \subsection{Challenges in the Velocity of big data}
 
-Velocity refers to the challenges associated with
-the continuous generation of data at
-high speed.
-The data set would be
+Most traditional anomaly detection methods assume that
+the data set is generated
+by an unknown but stationary probability distribution
+,
+the volume of data is finite and
+the entire dataset could be stored for analysis~\cite{silva2013data}.
+However,
+in the big data age,
+the data set would be
 an infinite set of data instances in which
 each instance is a
 set of values with an explicit or
@@ -408,51 +440,67 @@ The data stream are unbounded
 sequences and the entry rate is continuously high,
 as the respective variations repeatedly
 change over time.
+The anomaly detection on data stream,
+as show in Figure~\ref{fig:streamAnomaly},
+is a highly challenge tasks because of
+the unbounded volume of data,
+the high rate of data generation,
+and data be stored will run out of memory space~\cite{sadik2014research}.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/streamAnomaly.png}
+  \caption{Anomaly detection on stream data}\label{fig:streamAnomaly}
+\end{figure}
 
+In most data stream scenarios，
+more recent information from the stream can reflect the
+emerging of new trends or changes on the data distribution.
+This information can be
+used to explain the evolution of the process under observation.
+In the sliding-window model，
+only the most recent information
+from the data stream are stored in a data structure whose size can be variable
+or fixed.
+This data structure is usually a first in，
+first out (FIFO) structure，
+which considers
+the objects from the current period of time up to a certain period in the past.
+The organization and manipulation of objects are based on the principles of queue processing,
+where the first object added to the queue will be the first one to be removed.
+In Figure~\ref{slidingWindow}，
+we present an example of the sliding-window model.
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{figures/slideWindow.png}
-  \caption{Sliding window}\label{fig:slidingWindow}
+  \caption{Sliding window model}\label{fig:slidingWindow}
 \end{figure}
-
 % Data streams reflect the important features of big data in that the
 % aspects of both volume and velocity are temporally ordered,
 % evolving,
 % and potentially
 % infinite.
-Most traditional anomaly detection methods assume that
-the data set is generated
-by an unknown but stationary probability distribution
-,
-the volume of data is finite and
-the entire dataset could be stored for analysis~\cite{silva2013data}.
-However,
-the anomaly detection on data stream is
-a highly challenge tasks because of
-the unbounded volume of data,
-the high rate of data generation,
-and data be stored will run out of memory space~\cite{sadik2014research}.
+
 
 % Data streams are ,
 % which makes the task of detecting anomaliers and extracting useful insights
 % challenging.
 % This is a main disadvantage that arises in several application areas~\cite{salehi2016fast}.
-Silva et al.~\cite{silva2013data} summarized
-the following challenges should be considered for developing
-a successful anomaly detection methods in data streams:
-\begin{inparaenum}
-  \item the data instances arrive continuously;
-  \item there is no control over the order of processing or
-  handling of data instances;
-  \item the
-  size of a data stream can be unbounded;
-  \item data instances are deleted after processing;
-  and
-  \item the data generation process can be nonstationary;
-  hence,
-  its probability
-  distribution may evolve over the period.
-\end{inparaenum}
+%Silva et al.~\cite{silva2013data} summarized
+%the following challenges should be considered for developing
+%a successful anomaly detection methods in data streams:
+%\begin{inparaenum}
+%  \item the data instances arrive continuously;
+%  \item there is no control over the order of processing or
+%  handling of data instances;
+%  \item the
+%  size of a data stream can be unbounded;
+%  \item data instances are deleted after processing;
+%  and
+%  \item the data generation process can be nonstationary;
+%  hence,
+%  its probability
+%  distribution may evolve over the period.
+%\end{inparaenum}
 % The data may comprise irrelevant attributes that
 % raise problems for anomaly detection,
 % and there are several other factors involved,
