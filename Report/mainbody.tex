@@ -44,8 +44,7 @@ Discovering abnormal patterns
 deviating from the
 datasets is refered as anomaly detection or outlier detection
 is being
-It can be used to detect anomaliers or
-events such as
+It can be used to detect abnormal events such as
 intrusion detection~\cite{garcia2009anomaly},
 fault detection~\cite{hwang2009survey},
 fraud detection~\cite{bolton2002statistical},
@@ -135,8 +134,8 @@ The rest of the chapter is organised as follows.
 We first introduce the existing methods of classic anomaly detection,
 in the Section~\ref{sec-method},
 Then,
-we introduce the explaining anomaly detect method
-in the Section~\ref{sec-explain_anomaly}.
+we introduce some challenges of anomaly detection in big data
+in the Section~\ref{sec-challenge-big}.
 In the Section~\ref{sec:evaluate},
 we introduce the popular evaluation method in anomaly detection.
 Section~\ref{sec:tools} introduce the published tools of
@@ -316,8 +315,7 @@ it shows great improvement on Yahoo Webscope benchmark.
 %Therefore it is meaningful to put some works into use
 %certain approach for explaning the  anomaly detection.
 
-\section{Challenges of Anomaly detection in big data}
-\label{sec-challenge-big}
+\section{Challenges of Anomaly detection in big data}~\label{sec-challenge-big}
 The two features of big data that have the greatest effect
 on the problem of high dimensionality are “volume” and “velocity.”
 brings
@@ -440,34 +438,38 @@ The data stream are unbounded
 sequences and the entry rate is continuously high,
 as the respective variations repeatedly
 change over time.
-The anomaly detection on data stream,
-as show in Figure~\ref{fig:streamAnomaly},
-is a highly challenge tasks because of
-the unbounded volume of data,
-the high rate of data generation,
-and data be stored will run out of memory space~\cite{sadik2014research}.
+
+
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{figures/streamAnomaly.png}
   \caption{Anomaly detection on stream data}\label{fig:streamAnomaly}
 \end{figure}
 
-In most data stream scenarios，
+The anomaly detection on data stream,
+as show in Figure~\ref{fig:streamAnomaly},
+is a highly challenge tasks because of
+the unbounded volume of data,
+the high rate of data generation,
+and data be stored will run out of memory space~\cite{sadik2014research}.
+
+
+In most data stream scenarios,
 more recent information from the stream can reflect the
 emerging of new trends or changes on the data distribution.
 This information can be
 used to explain the evolution of the process under observation.
-In the sliding-window model，
+In the sliding-window model,
 only the most recent information
 from the data stream are stored in a data structure whose size can be variable
 or fixed.
-This data structure is usually a first in，
-first out (FIFO) structure，
+This data structure is usually a first in,
+first out (FIFO) structure,
 which considers
 the objects from the current period of time up to a certain period in the past.
 The organization and manipulation of objects are based on the principles of queue processing,
 where the first object added to the queue will be the first one to be removed.
-In Figure~\ref{slidingWindow}，
+In Figure~\ref{fig:slidingWindow},
 we present an example of the sliding-window model.
 \begin{figure}
   \centering
@@ -760,7 +762,7 @@ class).
 \subsubsection{Precision}
 
 The \textit{Precision} measures the ratio of
-examples classied as positive that
+examples classied as positive that
 are truly positive~\cite{ting2010precision}.
 
 \begin{equation}
