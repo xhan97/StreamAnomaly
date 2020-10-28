@@ -40,8 +40,8 @@ discovering the huge hidden values from datasets.
 Discovering abnormal patterns
 deviating from the
 datasets is refered as anomaly detection or outlier detection
-is being
-It can be used to detect abnormal events such as
+is received widespread attention in academia and industry.
+It can be used to detect any abnormal events such as
 intrusion detection~\cite{garcia2009anomaly},
 fault detection~\cite{hwang2009survey},
 fraud detection~\cite{bolton2002statistical},
@@ -106,8 +106,8 @@ procedural way.
 However,
 many challenges brought by the features of big data make 
 the traditional anomaly detetion mehtod ineffective. 
-This paper aims to discusse 
-the specially challenges of anomaly detection methods for Big Data and 
+This paper aims to discuss 
+the specially challenges of anomaly detection in age of Big Data and 
 show existing methods to overcome them. 
 
 % However,
@@ -438,14 +438,6 @@ The data stream are unbounded
 sequences and the entry rate is continuously high,
 as the respective variations repeatedly
 change over time.
-
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\textwidth]{figures/streamAnomaly.png}
-  \caption{Anomaly detection on stream data}\label{fig:streamAnomaly}
-\end{figure}
-
 The anomaly detection on data stream,
 as show in Figure~\ref{fig:streamAnomaly},
 is a highly challenge tasks because of
@@ -453,24 +445,29 @@ the unbounded volume of data,
 the high rate of data generation,
 and data be stored will run out of memory space~\cite{sadik2014research}.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{figures/streamAnomaly.png}
+  \caption{Anomaly detection on stream data}\label{fig:streamAnomaly}
+\end{figure}
 
 In most data stream scenarios,
 more recent information from the stream can reflect the
 emerging of new trends or changes on the data distribution.
-This information can be
-used to explain the evolution of the process under observation.
-In the sliding-window model,
-only the most recent information
-from the data stream are stored in a data structure whose size can be variable
+% This information can be
+% used to explain the evolution of 
+% the process under observation.
+Most method use the sliding-window model to 
+capture this feature of data stream.
+In the the sliding-window model.
+only the data which from the current period of time 
+up to a certain period in the past
+are stored in a data structure 
+where the window size can be variable
 or fixed.
 This data structure is usually a first in,
-first out (FIFO) structure,
-which considers
-the objects from the current period of time up to a certain period in the past.
-The organization and manipulation of objects are based on the principles of queue processing,
-where the first object added to the queue will be the first one to be removed.
-In Figure~\ref{fig:slidingWindow},
-we present an example of the sliding-window model.
+first out (FIFO) structure i.e. first object added will be the first one to be removed,
+An example of the sliding-window model is presented in Figure~\ref{fig:slidingWindow}.
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{figures/slideWindow.png}
@@ -555,13 +552,13 @@ which is used to find anomaliers on distance based
 windowed data streams.
 A sliding window is used to continuously inspect the
 object until it expires.
-Later,
-Angiulli and Fasseti~\cite{angiulli2009detecting} presented
-an additional algorithm for identifying distance-based anomaliers
-in data streams using the sliding window
-model; although based on their previous approximate algorithm,
-this algorithm
-emphasized fixed memory requirements.
+% Later,
+% Angiulli and Fasseti~\cite{angiulli2009detecting} presented
+% an additional algorithm for identifying distance-based anomaliers
+% in data streams using the sliding window
+% model; although based on their previous approximate algorithm,
+% this algorithm
+% emphasized fixed memory requirements.
 
 An algorithm based on the sliding window model for
 mining constrained frequent
@@ -579,27 +576,27 @@ after the frequent item sets are satisfied,
 the constraints are mined from
 the CUSF-tree.
 
-Kontaki et al.~\cite{kontaki2011continuous}
-also studied the problem of continuous anomaly detection in
-data streams using sliding windows.
-They proposed four algorithms that sought effective
-anomaly monitoring with lesser memory requirements.
-Apart from assuming that the
-data are in metric space,
-their model did not make any assumptions about
-the behavior of input data.
-Their methods have considerable flexibility with
-regard to parameter values,
-enabling the execution of multiple distance-based
-anomaly detection tasks
-with different values,
-and they reduced the number of distance computations using
-micro-clusters.
-Their primary concerns were to improve efficiency and
-reduce storage
-consumption.
-Their methods incorporate an event-based framework that bypasses
-unneeded computations benefiting from the expiration time of objects.
+% Kontaki et al.~\cite{kontaki2011continuous}
+% also studied the problem of continuous anomaly detection in
+% data streams using sliding windows.
+% They proposed four algorithms that sought effective
+% anomaly monitoring with lesser memory requirements.
+% Apart from assuming that the
+% data are in metric space,
+% their model did not make any assumptions about
+% the behavior of input data.
+% Their methods have considerable flexibility with
+% regard to parameter values,
+% enabling the execution of multiple distance-based
+% anomaly detection tasks
+% with different values,
+% and they reduced the number of distance computations using
+% micro-clusters.
+% Their primary concerns were to improve efficiency and
+% reduce storage
+% consumption.
+% Their methods incorporate an event-based framework that bypasses
+% unneeded computations benefiting from the expiration time of objects.
 
 In addition,
 enseble-based methods are also proposed to
@@ -612,7 +609,6 @@ On the current complete window,
 iForestASD uses the standard
 iForest method to to adapte streaming
 data anomaly detection.
-HS-Trees~\cite{tan2011fast}
 % A continuous outlier detection algorithm (CODA) is
 % an event-based method that
 % estimates the expiration time of objects to
@@ -895,31 +891,22 @@ for multi-output,
 multi-label and data streaming.
 Implemented in Python language,
 it includes various algorithms and
-methods for streams mining and in
-particular the popular HS-Trees algorithm.
+methods for streams mining.
 
 \subsection{Distributed Computing frameworks}
 Distributed computing is one of the most
-important techniques to handle
-and process big data.
-MapReduce is one
-of the first distributed programming paradigms to
-handle big data storing and processing.
-Henceforth,
-many frameworks for distributed computing
+important techniques to handle big data.
+Many frameworks for distributed computing
 such as Apache Hadoop
 (\href{https://hadoop.apache.org/}{https://hadoop.apache.org/}),
-Apache Storm
-(\href{https://storm.apache.org/}{https://storm.apache.org/}),
 Apache Spark
 (\href{https://spark.apache.org/}{https://spark.apache.org/}),
-Apache Flink
+and Apache Flink
 (\href{https://flink.apache.org/}{https://flink.apache.org/})
-were developed addressing the increasing demands of big data.
+were developed to address the challenges of big data.
 Most of these frameworks
-have in-house machine learning (ML) libraries,
-and Apache Spark has a powerful
-ML library than any of the other frameworks.
+have in-house machine learning (ML) libraries to build 
+the application of anomly detecion.
 
 
 % \subsection{RRCF}
