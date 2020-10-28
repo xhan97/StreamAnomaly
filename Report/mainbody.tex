@@ -127,14 +127,15 @@ show existing methods to overcome them.
 % \end{enumerate}
 
 The rest of the chapter is organised as follows.
-We first introduce the existing methods of classic anomaly detection,
+We first introduce the existing methods of classic anomaly detection
 in the Section~\ref{sec-method},
 Then,
-we introduce some challenges of anomaly detection in big data
+we introduce challenges of anomaly detection in big data
 in the Section~\ref{sec-challenge-big}.
 In the Section~\ref{sec:evaluate},
 we introduce the popular evaluation method in anomaly detection.
-Section~\ref{sec:tools} introduce the published tools of
+In the Section~\ref{sec:tools},
+we introduce the published tools of
 methods of anomaly detection,
 followed by the conclusions in the last section.
 
@@ -372,13 +373,12 @@ DOLPHIN ~\cite{angiulli2007very} is also a
 distance based anomaly detection method
 that works on disk-resident data sets in huge datasets.
 
-To solve the sequential exception problem in large databases,
 Arning et al.~\cite{arning1996linear} proposed a linear algorithm
 using a dissimilarity function to capture the
 similarity rate of a data point.
 Erfani et al.~\cite{erfani2016high} introduced
-an unsupervised method for high-dimensional large-scale
-unlabeled data sets to detect anomaliers that
+an unsupervised method for  large-scale
+dataset to detect anomaliers that
 are a combination of a deep belief network (DBN) and one-class
 support vector machines (SVM).
 One-class SVMs (1SVMs) are used for detecting anomaliers
@@ -386,7 +386,6 @@ through unsupervised learning and aim to
 model the underlying distribution of data while
 not considering irrelevant attributes or
 anomaliers in the training records.
-Features derived from training samples are taken as input to train 1SVMs.
 Conversely,
 a DBN is
 a multiclass semi-supervised approach and dimensionality reduction tool.
@@ -451,9 +450,9 @@ and data be stored will run out of memory space~\cite{sadik2014research}.
   \caption{Anomaly detection on stream data}\label{fig:streamAnomaly}
 \end{figure}
 
-In most data stream scenarios,
-more recent information from the stream can reflect the
-emerging of new trends or changes on the data distribution.
+In data stream scenarios,
+more recent information can reflect the 
+new trends or changes on the data distribution.
 % This information can be
 % used to explain the evolution of 
 % the process under observation.
@@ -538,14 +537,15 @@ An example of the sliding-window model is presented in Figure~\ref{fig:slidingWi
 % duration of the data~\cite{gama2012survey}.
 
 Angiulli and Fasseti~\cite{angiulli2007detecting}
-introduced methods for recognizing distance-based
+proposed a method for developing distance-based
 anomaliers in data streams using a sliding window model in which
 anomaly queries are executed for the purpose of
-identifying anomaliers in the current window.
-Their algorithms
-execute anomaly queries and return an approximate answer based on accurate
+detecting anomaliers in the current window.
+Their method
+executes anomaly detection and 
+return an score based on accurate
 estimations with a statistical guarantee.
-These algorithms are based on a method
+This method is based on a method
 known as stream outlier miner,
 or STORM,
 which is used to find anomaliers on distance based
@@ -560,18 +560,20 @@ object until it expires.
 % this algorithm
 % emphasized fixed memory requirements.
 
-An algorithm based on the sliding window model for
+
+CUSFgrowth
+(constrained uncertain data stream frequent item sets growth)
+~\cite{yu2016uncertain},
+is a method based on the sliding window model for
 mining constrained frequent
-item sets on uncertain data streams was introduced by
-Yu et al.~\cite{yu2016uncertain}.
-Known as CUSFgrowth
-(constrained uncertain data stream frequent item sets growth),
-the algorithm
+item sets on data streams.
+This method
 determines the order of items in transactions and
 analyzes the properties of constraints.
-According to the order of items determined by
-the properties of constraints a CUSF-tree
-is created; later,
+In this method, 
+a CUSF-tree
+is created according to the order of items which 
+determined by the properties of constraints; 
 after the frequent item sets are satisfied,
 the constraints are mined from
 the CUSF-tree.
@@ -602,7 +604,7 @@ In addition,
 enseble-based methods are also proposed to
 resolve the problem of detecting anomaliers
 in streaming data.
-iForestASD~\cite{ding2013anomaly},
+iForestASD~\cite{ding2013anomaly}
 uses sliding window to deal with streaming
 data.
 On the current complete window,
@@ -905,7 +907,7 @@ and Apache Flink
 (\href{https://flink.apache.org/}{https://flink.apache.org/})
 were developed to address the challenges of big data.
 Most of these frameworks
-have in-house machine learning (ML) libraries to build 
+have many machine learning (ML) libraries to build 
 the application of anomly detecion.
 
 
@@ -916,18 +918,25 @@ the application of anomly detecion.
 
 Anomoaly detection has been extensively
 attentted in recent years in the modern industry.
-This chapter aimed to present the state of the art
-anomaly detecttion for practical using in industry.
-This has included anomoaly detection method based on distribution,
+However,
+many challenges brought by the Big Data make the method  
+of traditional anomaly detetion ineffective. 
+This chapter aimed to  
+discuss the anomaly detection 
+in the age of Big Data.
+This has included traditional anomoaly detection method 
+based on distribution,
 distance,
 density,
 cluster and ensemble.
-To evaluate anomoaly detection method,
-we reviewed commonly used
-two categories including supervised and unspervisd.
+We discuss the challenges brought by the feature of 
+Volume and Velocity of Big Data and 
+present the state of the art
+anomaly detection method for overcomeing them.  
 In addition,
-we reviewd the explanation of anomoaly detection which
-has been getting more and more attention.
+we reviewed commonly used
+two categories including supervised and unspervisd 
+to evaluate anomoaly detection method.
 Finaly,
 we provided a list of free and open source software packages for
 practitioners to create their own anomaly detection systems.
